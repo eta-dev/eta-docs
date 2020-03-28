@@ -7,6 +7,10 @@ module.exports = {
   organizationName: 'eta-dev', // Usually your GitHub org/user name.
   projectName: 'eta', // Usually your repo name.
   themeConfig: {
+    googleAnalytics: {
+      trackingID: 'UA-162086718-1',
+      anonymizeIP: true
+    },
     navbar: {
       title: 'Eta',
       logo: {
@@ -82,7 +86,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/eta-dev/eta-docs/edit/master/website/'
+          editUrl: 'https://github.com/nebrelbug/eta-docs/edit/master/website/'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
