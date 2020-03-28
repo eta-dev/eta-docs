@@ -6,6 +6,7 @@ module.exports = {
         label: 'About',
         items: [
           'about/introduction',
+          'about/eta-vs-ejs',
           'about/why-eta',
           'about/performance',
           'about/FAQ',
@@ -32,10 +33,10 @@ module.exports = {
       'syntax/cheatsheet',
       'syntax/async',
       'syntax/interpolate',
+      'syntax/auto-escaping',
+      'syntax/evaluate',
       'syntax/partials',
-      'syntax/builtin-helpers',
-      'syntax/whitespace-control',
-      'syntax/auto-escaping'
+      'syntax/whitespace-control'
     ],
     API: [
       'api/overview',
