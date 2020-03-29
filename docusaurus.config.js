@@ -8,8 +8,7 @@ module.exports = {
   projectName: 'eta', // Usually your repo name.
   themeConfig: {
     googleAnalytics: {
-      trackingID: 'UA-162086718-1',
-      anonymizeIP: true
+      trackingID: 'UA-162086718-1'
     },
     navbar: {
       title: 'Eta',
