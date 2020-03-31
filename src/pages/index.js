@@ -1,16 +1,52 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import React from 'react'
 import classnames from 'classnames'
 import Layout from '@theme/Layout'
 import Link from '@docusaurus/Link'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import useBaseUrl from '@docusaurus/useBaseUrl'
-import styles from './styles.module.css'
+import styles from './index.module.css'
+import CodeSnippet from '@site/src/theme/CodeSnippet'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+const snippets = [
+  {
+    label: 'Example 1',
+    config: `Users:
+
+<ul>
+<% it.users.forEach(function(user){ %>
+  <li><%= user %></li>
+<% }) %>
+</ul>`
+  },
+  {
+    label: 'Example 2',
+    config: `<%= await getSomeValue() %>
+    
+<% /* Eta supports multiline comments,
+which is really useful */ %>
+
+<%= "<%" %>
+`
+  },
+  {
+    label: 'Example 3',
+    config: `<% /* Embedded JS templates mean that you can
+write any valid JS expression inside interpolate tags: */ %>
+
+<%= 2 + 4 %>`
+  }
+]
+
+function Snippet({ label, config }) {
+  return (
+    <CodeSnippet
+      className={styles.configSnippet}
+      snippet={config}
+    ></CodeSnippet>
+  )
+}
 
 const features = [
   {
@@ -45,115 +81,201 @@ const features = [
         has a minzipped bundle cost of only ~2KB!
       </>
     )
+  },
+  {
+    title: <>Configurable and pluggable</>,
+    imageUrl: 'img/undraw/software_engineer.svg',
+    description: (
+      <>Eta supports plugins, custom delimiters, caching, and so much more!</>
+    )
   }
 ]
 
+function Feature({ imageUrl, title, description }) {
+  const imgUrl = useBaseUrl(imageUrl)
+  return (
+    <div className={classnames('col col--6', styles.feature)}>
+      {imgUrl && (
+        <div className='text--center'>
+          <img
+            className={classnames('padding-vert--md', styles.featureImage)}
+            src={imgUrl}
+            alt={title}
+          />
+        </div>
+      )}
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+  )
+}
+
 function Home() {
-  // const context = useDocusaurusContext()
-  // const { siteConfig = {} } = context
+  const context = useDocusaurusContext()
+  const { siteConfig = {} } = context
   return (
     <Layout
-      permalink='/'
-      title='EtaJS'
-      description='Blazing-fast, lightweight, powerful and modern JS template engine'
+      title={`${siteConfig.title}`}
+      description='Lighweight, powerful, pluggable embedded JS template engine'
+      keywords={[
+        'embedded js',
+        'template engine',
+        'fast template engine',
+        'ejs',
+        'embedded template engine'
+      ]}
     >
-      <div className={styles['index-hero']}>
-        <div className={styles['index-hero-inner']}>
-          {/* <img
-            alt='Greek Letter Eta'
-            className={styles['index-hero-logo']}
-            src={useBaseUrl('img/logo-white.svg')}
-            style={{ width: '35%' }}
-          /> */}
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            style={{ isolation: 'isolate', width: '35%' }}
-            viewBox='0 0 128 128'
-            width='300pt'
-            height='300pt'
-            className={styles['index-hero-logo']}
-          >
-            <defs>
-              <clipPath id='_clipPath_39da3O2sW6DAc6nsluCMvct1OSrF59oN'>
-                <rect width='128' height='128' />
-              </clipPath>
-            </defs>
-            <g clipPath='url(#_clipPath_39da3O2sW6DAc6nsluCMvct1OSrF59oN)'>
-              <text
-                transform='matrix(1,0,0,1,29,87.773)'
-                style={{
-                  fontFamily: 'Noto Sans',
-                  fontWeight: 400,
-                  fontSize: '110px',
-                  fontStyle: 'normal',
-                  fill: 'var(--ifm-font-base-color)',
-                  stroke: 'none'
-                }}
+      <header className={classnames('hero', styles.heroBanner)}>
+        <div className='container'>
+          <div className='row'>
+            <div className={classnames('col col--5 col--offset-1')}>
+              <h1 className='hero__title'>{siteConfig.title}</h1>
+              <p className='hero__subtitle'>
+                Lighweight, powerful, pluggable embedded JS template engine
+              </p>
+              <div className={styles.buttons}>
+                <Link
+                  className={classnames(
+                    'button button--outline button--secondary button--lg',
+                    styles.getStarted
+                  )}
+                  to={useBaseUrl('docs/guides/getting_started')}
+                >
+                  Get Started
+                </Link>
+              </div>
+            </div>
+            <div className={classnames('col col--5')}>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                style={{ isolation: 'isolate', width: '100%' }}
+                viewBox='0 0 128 128'
+                width='128pt'
+                height='128pt'
+                className={styles['heroImg']}
               >
-                η
-              </text>
-            </g>
-          </svg>
-          <h1 className={styles['index-hero-project-tagline']}>
-            Eta is a faster, more lightweight, and more configurable embedded JS
-            template engine
-            {/* <br />{' '}
-            <span className={styles['index-hero-project-keywords']}>
-              - Powerful
-            </span>{' '}
-            <br />
-            <span className={styles['index-hero-project-keywords']}>
-              - Lightweight
-            </span>{' '}
-            <br />
-            <span className={styles['index-hero-project-keywords']}>
-              - Blazing-Fast
-            </span>{' '}
-            <br /> */}
-          </h1>
-          <div className={styles['index-ctas']}>
-            <Link
-              className={styles['index-ctas-get-started-button']}
-              to={useBaseUrl('docs/get-started/overview')}
-            >
-              Get Started
-            </Link>
-            <span className={styles['index-ctas-github-button']}>
-              <iframe
-                src='https://ghbtns.com/github-btn.html?user=eta-dev&amp;repo=eta&amp;type=star&amp;count=true&amp;size=large'
-                frameBorder={0}
-                scrolling={0}
-                width={160}
-                height={30}
-                title='GitHub Stars'
-              />
-            </span>
+                <defs>
+                  <clipPath id='_clipPath_39da3O2sW6DAc6nsluCMvct1OSrF59oN'>
+                    <rect width='128' height='128' />
+                  </clipPath>
+                </defs>
+                <g clipPath='url(#_clipPath_39da3O2sW6DAc6nsluCMvct1OSrF59oN)'>
+                  <text
+                    transform='matrix(1,0,0,1,29,87.773)'
+                    style={{
+                      fontFamily: 'Noto Sans',
+                      fontWeight: 400,
+                      fontSize: '110px',
+                      fontStyle: 'normal',
+                      fill: 'var(--ifm-font-base-color)',
+                      stroke: 'none'
+                    }}
+                  >
+                    η
+                  </text>
+                </g>
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
-
+      </header>
       <main>
+        <div className='container'>
+          <div className='row'>
+            <div className={classnames(`${styles.pitch} col col--6`)}>
+              <h2>
+                A faster, more lightweight, and more configurable EJS
+                alternative
+              </h2>
+              <p>
+                Eta vs. EJS:
+                <ul>
+                  <li>
+                    Eta's more lightweight, weighing in at only{' '}
+                    <b>2.2KB gzipped</b>
+                  </li>
+                  <li>
+                    Eta's <b>much faster</b> at compiling and rendering than
+                    EJS. Check out{' '}
+                    <a href='https://cdn.statically.io/gh/nebrelbug/eta/master/browser-tests/benchmark.html'>
+                      these benchmarks
+                    </a>
+                  </li>
+                  <li>
+                    Eta allows <b>left whitespace control</b> (with{' '}
+                    <code>-</code>), something that doesn't work in EJS because
+                    EJS uses <code>-</code> on the left side to indicate that
+                    the value shouldn't be escaped. Instead, Eta uses{' '}
+                    <code>~</code> to output a raw value
+                  </li>
+                  <li>
+                    Eta gives you <b>more flexibility with delimeters</b> -- you
+                    could set them to <code>{'{{'}</code> and{' '}
+                    <code>{'}}'}</code>, for example, while with EJS this isn't
+                    possible
+                  </li>
+                  <li>
+                    Eta adds <b>plugin support</b>
+                  </li>
+                  <li>
+                    Comments in Eta use <code>/* ... */</code> which allows
+                    multiline commenting and is more consistent
+                  </li>
+                  <li>
+                    Eta doesn't break with delimiters inside strings and
+                    comments.{' '}
+                    <i>
+                      Example: <code>{'<%= "%>" %>'}</code> works in Eta, while
+                      it breaks in EJS
+                    </i>
+                  </li>
+                  <li>
+                    Eta exposes <b>Typescript types</b> and distributes a UMD
+                    build
+                  </li>
+                  <li>
+                    Eta allows custom tag-type prefixes.{' '}
+                    <i>
+                      Example: you could change <code>{'<%='}</code> to{' '}
+                      <code>{'<%*'}</code>
+                    </i>
+                  </li>
+                  <li>
+                    Eta throws more informative errors.{' '}
+                    <i>
+                      If you accidentally leave a tag, string, or multiline
+                      comment unclosed, Eta will tell you where the problem is
+                    </i>
+                  </li>
+                </ul>
+              </p>
+            </div>
+            <div className={classnames('col col--6')}>
+              {snippets && snippets.length && (
+                <section className={styles.configSnippets}>
+                  <Tabs
+                    defaultValue={snippets[0].label}
+                    values={snippets.map((props, idx) => {
+                      return { label: props.label, value: props.label }
+                    })}
+                  >
+                    {snippets.map((props, idx) => (
+                      <TabItem value={props.label}>
+                        <Snippet key={idx} {...props} />
+                      </TabItem>
+                    ))}
+                  </Tabs>
+                </section>
+              )}
+            </div>
+          </div>
+        </div>
         {features && features.length && (
           <section className={styles.features}>
-            <div className='container'>
+            <div className='container margin-vert--md'>
               <div className='row'>
-                {features.map(({ imageUrl, title, description }, idx) => (
-                  <div
-                    key={idx}
-                    className={classnames('col col--4', styles.feature)}
-                  >
-                    {imageUrl && (
-                      <div className='text--center'>
-                        <img
-                          className={styles.featureImage}
-                          src={useBaseUrl(imageUrl)}
-                          alt={title}
-                        />
-                      </div>
-                    )}
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                  </div>
+                {features.map((props, idx) => (
+                  <Feature key={idx} {...props} />
                 ))}
               </div>
             </div>

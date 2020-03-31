@@ -7,6 +7,10 @@ module.exports = {
   organizationName: 'eta-dev', // Usually your GitHub org/user name.
   projectName: 'eta', // Usually your repo name.
   themeConfig: {
+    prism: {
+      additionalLanguages: ['ejs'],
+      theme: require('prism-react-renderer/themes/vsDark')
+    },
     googleAnalytics: {
       trackingID: 'UA-162086718-1'
     },
@@ -81,7 +85,7 @@ module.exports = {
           ]
         }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Eta developers. Built with Docusaurus.`
+      copyright: `Copyright © ${new Date().getFullYear()} Eta developers. Built with Docusaurus. Theme inspired by <a href="https://www.benthos.dev">benthos.dev</a>`
     }
   },
   presets: [
