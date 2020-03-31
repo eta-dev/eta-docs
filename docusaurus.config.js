@@ -10,6 +10,11 @@ module.exports = {
     googleAnalytics: {
       trackingID: 'UA-162086718-1'
     },
+    algolia: {
+      apiKey: '8ab526ea88555e09891cf30ccbd4ce15',
+      indexName: 'eta_js',
+      algoliaOptions: {} // Optional, if provided by Algolia
+    },
     navbar: {
       title: 'Eta',
       logo: {
