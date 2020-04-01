@@ -3,10 +3,34 @@ import Layout from '@theme/Layout'
 import styles from './index.module.css'
 import datStyles from './dat-gui.module.css'
 import CodeBlock from '@theme/CodeBlock'
-import AceEditor from 'react-ace'
+import Ace from 'react-ace'
 
-import 'ace-builds/src-noconflict/mode-ejs'
-import 'ace-builds/src-noconflict/theme-monokai'
+// Below so it doesn't err on build
+const Editor = props => {
+  if (typeof window !== 'undefined') {
+    require('ace-builds/src-noconflict/mode-ejs')
+    require('ace-builds/src-noconflict/theme-monokai')
+
+    return <Ace {...props} />
+  }
+
+  return null
+}
+
+class AceEditor extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { mounted: false }
+  }
+
+  componentDidMount() {
+    this.setState({ mounted: true })
+  }
+
+  render() {
+    return this.state.mounted ? <Editor {...this.props} /> : null
+  }
+}
 
 import * as Eta from 'eta'
 
