@@ -132,8 +132,8 @@ class Playground extends React.Component {
   }
 
   handleTemplateChange(newvalue) {
-    console.log('newvalue\n============')
-    console.log(newvalue)
+    // console.log('newvalue\n============')
+    // console.log(newvalue)
     this.setState(
       {
         template: newvalue
@@ -152,14 +152,14 @@ class Playground extends React.Component {
             this.state.template,
             customConfig
           ).toString()
-          console.log(functionString)
+          // console.log(functionString)
 
           templateResult = Eta.render(
             this.state.template,
             renderData,
             customConfig
           )
-          console.log(templateResult)
+          // console.log(templateResult)
         } catch (ex) {
           console.log('Err!')
           console.log(ex.stack)
