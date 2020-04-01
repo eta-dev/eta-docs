@@ -1,110 +1,90 @@
 import React from 'react'
 import Layout from '@theme/Layout'
-import styles from './styles.module.css'
+import styles from './index.module.css'
+import datStyles from './dat-gui.module.css'
 import CodeBlock from '@theme/CodeBlock'
+import AceEditor from 'react-ace'
+
+import 'ace-builds/src-noconflict/mode-ejs'
+import 'ace-builds/src-noconflict/theme-monokai'
 
 import * as Eta from 'eta'
+
+import DatGui, { DatBoolean, DatSelect, DatString } from 'react-dat-gui'
+
+import 'react-dat-gui/dist/index.css'
 
 Eta.templates.define(
   'mypartial',
   Eta.compile('Partial content: the value of `num` is <%= it.num %>')
 )
 
-var initialTemplate = `Hi
-<% console.log("Hope you like Eta!"); %>
-<%= it.htmlstuff %>
+var initialTemplate = `OK, so have fun! :D
+-------------------
+<%
+    var fruits = ["Apple", "Pear", "Orange", "Lemon"]
+      , random = " ".repeat(18).split("").map(x => Math.random())
+%>
 
-<% for (var key in it.obj) { %>
-Value: <%= it.obj[key] %>, Key: <%= key %>
+These fruits are amazing:
+<% for(var i = 0; i < fruits.length; ++i) {%>
 
-<% if (key === 'thirdchild') { %>
-  <% for (var i = 0, arr = it.obj[key]; i < arr.length; i++) { %>
-      Salutations! Index: <%= i %>, parent key: <%= key %>
-      
-  <% } %>
-<% } %>
-<% } %>
+  - <%=fruits[i]%>s<% } %>
 
-This is a partial: <%= E.include("mypartial", {num: 3}) %>
+
+Let's see some random numbers:
+
+<% random.forEach((c, i) => {
+%> <%=c.toFixed(10) + ((i + 1) % 6 === 0 ? "\\n": "") %><%});%>
+
+You can put any JS inside tags:
+-------------------------------
+
+2+4 = <%= 2+4 %>
+
+<% /* This template is rendered with the following data:
+
+var renderData = {
+  number: 78,
+  five: function() { return 5 },
+  arr: ['one', 'two', 'three', 'four'],
+  obj: {
+    key1: 'val1',
+    key2: 'val2',
+    key3: 'val3'
+  },
+  users: [{ name: 'Ben', job: 'Maintainer' },
+    { name: 'Joe', job: 'Maintainer' }]
+}
+
+and 1 partial, "mypartial"
+*/ %>
+
+Call functions
+--------------
+<%= it.five() %>
+
+
+Display arrays
+--------------
+<%= it.arr.join() %>
 `
 
-var initialData = `"htmlstuff": "<script>alert('hey')</script><p>alert('hey')</p><p>alert('hey')</p><p>alert('hey')</p>",
-"arr": ["Hey", "<p>Malicious XSS</p>", "Hey", 3, 12],
-"obj": {
-  "firstchild": "HI",
-  "secondchild": "HEY",
-  "thirdchild": [3, 6, 3, 2, 5, 4]
-}`
-
-function TemplateEditor(props) {
-  return (
-    <div className={styles.templategroup}>
-      <h4>Template</h4>
-      <textarea
-        autoComplete='off'
-        onChange={props.onChange}
-        defaultValue={props.content}
-      />
-    </div>
-  )
-}
-
-function FunctionDisplay(props) {
-  return (
-    <div className={styles.functiongroup}>
-      <h4>Compile</h4>
-      {/* <div className={styles.function}>{props.result}</div> */}
-      <CodeBlock className='javascript'>{props.result}</CodeBlock>
-    </div>
-  )
-}
-
-function DataEditor(props) {
-  return (
-    <div className={styles.datagroup}>
-      <h4>Data</h4>
-      <textarea
-        autoComplete='off'
-        onChange={props.onChange}
-        defaultValue={initialData}
-      />
-    </div>
-  )
-}
-
-function ResultDisplay(props) {
-  return (
-    <div className={styles.resultgroup}>
-      <h4>Result</h4>
-      <div className={styles.result}>{props.result}</div>
-    </div>
-  )
-}
-
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { hasError: false }
-  }
-
-  static getDerivedStateFromError() {
-    // Update state so the next render will show the fallback UI.
-    return { hasError: true }
-  }
-
-  componentDidCatch(error, errorInfo) {
-    // You can also log the error to an error reporting service
-    console.log('Eta had an error: ', error, errorInfo)
-  }
-
-  render() {
-    if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>
-    }
-
-    return this.props.children
-  }
+var renderData = {
+  number: 78,
+  five: function() {
+    return 5
+  },
+  arr: ['one', 'two', 'three', 'four'],
+  obj: {
+    key1: 'val1',
+    key2: 'val2',
+    key3: 'val3'
+  },
+  users: [
+    { name: 'Ben', job: 'Maintainer' },
+    { name: 'Joe', job: 'Maintainer' }
+  ]
 }
 
 class Playground extends React.Component {
@@ -112,119 +92,160 @@ class Playground extends React.Component {
     super(props)
     this.state = {
       template: initialTemplate,
-      data: JSON.parse('{' + initialData + '}'),
       functionString: Eta.compile(initialTemplate).toString(),
-      templateResult: Eta.render(
-        initialTemplate,
-        JSON.parse('{' + initialData + '}')
-      )
+      templateResult: Eta.render(initialTemplate, renderData),
+      config: {
+        autoEscape: true,
+        tagOpen: '<%',
+        tagClose: '%>',
+        display: 'result'
+      },
+      err: false
     }
-    this.handleDataChange = this.handleDataChange.bind(this)
     this.handleTemplateChange = this.handleTemplateChange.bind(this)
+    this.handleConfigUpdate = this.handleConfigUpdate.bind(this)
   }
 
-  handleDataChange(event) {
-    if (
-      event.target.value &&
-      JSON.parse('{' + (event.target.value || '') + '}')
-    ) {
-      var data = JSON.parse('{' + (event.target.value || '') + '}')
-      this.setState(
-        {
-          data: data || {}
-        },
-        this.updateEtaResults
-      )
-    }
-  }
-
-  handleTemplateChange(event) {
+  handleTemplateChange(newvalue) {
+    console.log('newvalue\n============')
+    console.log(newvalue)
     this.setState(
       {
-        template: event.target.value || ''
+        template: newvalue
       },
-      this.updateEtaResults
+      function() {
+        var functionString = ''
+        var templateResult = ''
+        var err = false
+        var customConfig = {
+          autoEscape: this.state.config.autoEscape,
+          tags: [this.state.config.tagOpen, this.state.config.tagClose]
+        }
+        // console.log(customConfig)
+        try {
+          functionString = Eta.compile(
+            this.state.template,
+            customConfig
+          ).toString()
+          console.log(functionString)
+
+          templateResult = Eta.render(
+            this.state.template,
+            renderData,
+            customConfig
+          )
+          console.log(templateResult)
+        } catch (ex) {
+          console.log('Err!')
+          console.log(ex.stack)
+          err = ex.stack
+        }
+
+        this.setState({
+          functionString: functionString,
+          templateResult: templateResult,
+          err: err
+        })
+      }
     )
   }
 
-  updateEtaResults() {
-    var functionString
-    var templateResult
-
-    try {
-      functionString = Eta.compile(this.state.template).toString()
-      this.setState({
-        functionString: functionString
-      })
-    } catch (ex) {}
-
-    try {
-      templateResult = Eta.render(this.state.template, this.state.data)
-      this.setState({
-        templateResult: templateResult
-      })
-    } catch (ex) {}
+  handleConfigUpdate(newData) {
+    this.setState(
+      prevState => ({
+        config: { ...prevState.config, ...newData }
+      }),
+      () => {
+        this.handleTemplateChange(this.state.template)
+      }
+    )
   }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (
+      this.state.template === nextState.template &&
+      this.state.functionString === nextState.functionString &&
+      this.state.err === nextState.err &&
+      this.state.templateResult === nextState.templateResult &&
+      this.state.config === nextState.config
+    ) {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  // updateEtaResults() {
+
+  // }
 
   render() {
     return (
       <div className={styles.playground}>
-        <span>
-          {'  '}Based on the excellent
-          <a href='http://olado.github.io/doT/index.html'> DoT.js</a> website
-        </span>
-        <div className={styles.samples}>
-          {/* <ul className={styles['sampletabs']}>
-              <li id="xinterpolation" className="">
-                interpolation
-              </li>
-              <li id="xevaluation" className="">
-                evaluation
-              </li>
-              <li id="xpartials" className="">
-                partials
-              </li>
-              <li id="xconditionals" className="">
-                conditionals
-              </li>
-              <li id="xarrays" className="active">
-                arrays
-              </li>
-              <li id="xencode">encode</li>
-            </ul> */}
-          {/* <!--Keeping this just in case I implement a similar tabs feature--> */}
-          {/* <div class="stripgroup">
-              <input id="strip" type="checkbox" checked="checked" />
-              <label for="strip">Strip whitespaces</label>
-            </div> */}
-          <div style={{ clear: 'both', height: '10px' }} />
-          <TemplateEditor
-            onChange={this.handleTemplateChange}
-            content={this.state.template}
+        <DatGui
+          data={this.state.config}
+          onUpdate={this.handleConfigUpdate}
+          className={datStyles['react-dat-gui']}
+        >
+          <DatBoolean path='autoEscape' label='autoEscape' />
+          <DatString path='tagOpen' label='tagOpen' />
+          <DatString path='tagClose' label='tagClose' />
+          <DatSelect
+            path='display'
+            options={['function', 'result']}
+            label='Display'
           />
-          <FunctionDisplay result={this.state.functionString} />
-          <div style={{ clear: 'both' }} />
-          <DataEditor onChange={this.handleDataChange} />
-          <ResultDisplay result={this.state.templateResult || ''} />
+        </DatGui>
+        <div className={styles['row']}>
+          <div className={styles['col']}>
+            {
+              <AceEditor
+                mode='ejs'
+                theme='monokai'
+                onChange={value => this.handleTemplateChange(value)}
+                name='UNIQUE_ID_OF_DIV'
+                className={styles['ace-editor']}
+                value={this.state.template}
+                editorProps={{ $blockScrolling: true }}
+              />
+            }{' '}
+          </div>
+          <div
+            className={styles['col'] + ' ' + styles['col-result']}
+            style={{ background: this.state.err ? '#c0392b' : '#27ae60' }}
+          >
+            <pre className={styles['result']}>
+              {this.state.err
+                ? this.state.err
+                : this.state.config.display === 'function'
+                ? this.state.functionString
+                : this.state.templateResult}
+            </pre>
+          </div>
+        </div>
+        <div className={styles['footer']}>
+          <p style={{ margin: 0, padding: 0 }}>
+            <span className={'octicon octicon-repo-forked'}></span> from
+            <a href='https://github.com/IonicaBizau'> @IonicaBizau</a>'s EJS
+            playground
+          </p>
         </div>
       </div>
     )
   }
 }
 
-class ErrorHandlingPlayground extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <Layout
         title='Eta Playground'
         description='Test out the Eta template engine in your browser'
       >
-        <ErrorBoundary>
-          <Playground />
-        </ErrorBoundary>
+        <Playground />
       </Layout>
     )
   }
 }
 
-export default ErrorHandlingPlayground
+export default App
