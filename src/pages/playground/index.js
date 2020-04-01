@@ -3,11 +3,12 @@ import Layout from '@theme/Layout'
 import styles from './index.module.css'
 import datStyles from './dat-gui.module.css'
 import CodeBlock from '@theme/CodeBlock'
-import Ace from 'react-ace'
 
 // Below so it doesn't err on build
 const Editor = props => {
   if (typeof window !== 'undefined') {
+    const Ace = require('react-ace').default
+
     require('ace-builds/src-noconflict/mode-ejs')
     require('ace-builds/src-noconflict/theme-monokai')
 
