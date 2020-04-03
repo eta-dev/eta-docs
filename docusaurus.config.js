@@ -5,7 +5,7 @@ module.exports = {
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'eta-dev', // Usually your GitHub org/user name.
-  projectName: 'eta', // Usually your repo name.
+  projectName: 'eta-docs', // Usually your repo name.
   themeConfig: {
     prism: {
       additionalLanguages: ['ejs'],
@@ -94,7 +94,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/eta-dev/eta-docs/edit/master/website/'
+          editUrl: 'https://github.com/eta-dev/eta-docs/edit/master/'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
