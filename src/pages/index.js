@@ -18,7 +18,7 @@ const snippets = [
 <% it.users.forEach(function(user){ %>
   <li><%= user %></li>
 <% }) %>
-</ul>`
+</ul>`,
   },
   {
     label: 'Example 2',
@@ -28,15 +28,25 @@ const snippets = [
 which is really useful */ %>
 
 <%= "<%" %>
-`
+`,
   },
   {
     label: 'Example 3',
     config: `<% /* Embedded JS templates mean that you can
 write any valid JS expression inside interpolate tags: */ %>
 
-<%= 2 + 4 %>`
-  }
+<%= 2 + 4 %>`,
+  },
+  {
+    label: 'Partials',
+    config: `<% @include("mypartial") %>
+
+<% @includeFile('./navbar', {pages: [
+  'home',
+  'about',
+  'users'
+]}) %>`,
+  },
 ]
 
 function Snippet({ label, config }) {
@@ -58,7 +68,7 @@ const features = [
         fast Eta is. Think fast, then multiply by crazy speedy, and you have an
         idea of Eta's performance.
       </>
-    )
+    ),
   },
   {
     title: <>Simply JavaScript</>,
@@ -69,7 +79,7 @@ const features = [
         just JavaScript -- you don't have to learn an entirely new template
         syntax.
       </>
-    )
+    ),
   },
   {
     title: <>Powerful and Lightweight</>,
@@ -80,15 +90,15 @@ const features = [
         EJS. Though it has almost-compatible syntax, it's more configurable and
         has a minzipped bundle cost of only ~2KB!
       </>
-    )
+    ),
   },
   {
     title: <>Configurable and pluggable</>,
     imageUrl: 'img/undraw/software_engineer.svg',
     description: (
       <>Eta supports plugins, custom delimiters, caching, and so much more!</>
-    )
-  }
+    ),
+  },
 ]
 
 function Feature({ imageUrl, title, description }) {
@@ -122,7 +132,7 @@ function Home() {
         'template engine',
         'fast template engine',
         'ejs',
-        'embedded template engine'
+        'embedded template engine',
       ]}
     >
       <header className={classnames('hero', styles.heroBanner)}>
@@ -168,7 +178,7 @@ function Home() {
                       fontSize: '110px',
                       fontStyle: 'normal',
                       fill: 'var(--ifm-font-base-color)',
-                      stroke: 'none'
+                      stroke: 'none',
                     }}
                   >
                     η
