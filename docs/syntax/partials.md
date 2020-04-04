@@ -5,26 +5,32 @@ title: Partials
 
 ## Basic Syntax
 
-A template function is always called with [an Eta config object](../api/configuration.md), which is stored in a variable called `E`. `E` has two functions for including partials: `include` and `includeFile`
+A template function is always called with [an Eta config object](../api/configuration.md), which is stored in a variable called `E`. `E` has two functions for including partials: `include` and `includeFile`.
+
+The prefix `@` is a shortcut equivalent to `~E.` (an unescaped output tag starting with `E.`). It's only available as a prefix (right after the opening delimiter). It makes template syntax slightly cleaner.
 
 ```
-<%= E.include(name, options) %>
+<%~ E.include(name, options) %>
+
+<% /* Equivalent to: */ %>
+<% @include(name, options) %>
+
 ```
 
 ```
-<%= E.includeFile(name, options) %>
+<%~ E.includeFile(name, options) %>
 ```
 
 ## Example
 
 ```ejs
-<%= E.include('my-partial') %>
+<% @include('my-partial') %>
 ```
 
 ```ejs
-<%= E.include('my-partial', {users: it.users}) %>
+<% @include('my-partial', {users: it.users}) %>
 ```
 
 ```
-<%= E.includeFile('../partials/footer', {description: "Footer" }) %>
+<% @includeFile('../partials/footer', {description: "Footer" }) %>
 ```

@@ -14,13 +14,13 @@ If you just call `render` or `compile` with `name` or `filename` in options, Eta
 ```js
 Eta.templates.define('my-partial', Eta.compile('This is a partial speaking'))
 
-Eta.render('... <%= E.include("my-partial") %>', {})
+Eta.render('... <% @include("my-partial") %>', {})
 // ... This is a partial speaking
 
 // To call a partial w/ data:
 Eta.templates.define('my-partial-2', Eta.compile('Name: <%= it.name %>'))
 Eta.render(
-  '... <%= E.include("my-partial", {name: it.name}) %>',
+  '... <% @include("my-partial", {name: it.name}) %>',
   // The 2nd argument passed to `include` is the data. You could also pass `it` to forward all data
   { name: 'Ben' }
 )

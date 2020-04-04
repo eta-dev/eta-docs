@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Eta',
   tagline: 'An incredibly fast JS template engine',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://eta.js.org',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'eta-dev', // Usually your GitHub org/user name.
