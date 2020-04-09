@@ -18,7 +18,7 @@ const snippets = [
 <% it.users.forEach(function(user){ %>
   <li><%= user %></li>
 <% }) %>
-</ul>`,
+</ul>`
   },
   {
     label: 'Example 2',
@@ -28,14 +28,14 @@ const snippets = [
 which is really useful */ %>
 
 <%= "<%" %>
-`,
+`
   },
   {
     label: 'Example 3',
     config: `<% /* Embedded JS templates mean that you can
 write any valid JS expression inside interpolate tags: */ %>
 
-<%= 2 + 4 %>`,
+<%= 2 + 4 %>`
   },
   {
     label: 'Partials',
@@ -45,17 +45,12 @@ write any valid JS expression inside interpolate tags: */ %>
   'home',
   'about',
   'users'
-]}) %>`,
-  },
+]}) %>`
+  }
 ]
 
 function Snippet({ label, config }) {
-  return (
-    <CodeSnippet
-      className={styles.configSnippet}
-      snippet={config}
-    ></CodeSnippet>
-  )
+  return <CodeSnippet className={styles.configSnippet} snippet={config} />
 }
 
 const features = [
@@ -68,7 +63,7 @@ const features = [
         fast Eta is. Think fast, then multiply by crazy speedy, and you have an
         idea of Eta's performance.
       </>
-    ),
+    )
   },
   {
     title: <>Simply JavaScript</>,
@@ -79,7 +74,7 @@ const features = [
         just JavaScript -- you don't have to learn an entirely new template
         syntax.
       </>
-    ),
+    )
   },
   {
     title: <>Powerful and Lightweight</>,
@@ -90,15 +85,15 @@ const features = [
         EJS. Though it has almost-compatible syntax, it's more configurable and
         has a minzipped bundle cost of only ~2KB!
       </>
-    ),
+    )
   },
   {
     title: <>Configurable and pluggable</>,
     imageUrl: 'img/undraw/software_engineer.svg',
     description: (
       <>Eta supports plugins, custom delimiters, caching, and so much more!</>
-    ),
-  },
+    )
+  }
 ]
 
 function Feature({ imageUrl, title, description }) {
@@ -132,7 +127,7 @@ function Home() {
         'template engine',
         'fast template engine',
         'ejs',
-        'embedded template engine',
+        'embedded template engine'
       ]}
     >
       <header className={classnames('hero', styles.heroBanner)}>
@@ -143,7 +138,7 @@ function Home() {
               <p className='hero__subtitle'>
                 Lighweight, powerful, pluggable embedded JS template engine
               </p>
-              <div className={styles.buttons}>
+              <div className={styles.buttons + ' ' + styles.buttonDiv}>
                 <Link
                   className={classnames(
                     'button button--outline button--secondary button--lg',
@@ -152,6 +147,17 @@ function Home() {
                   to={useBaseUrl('docs/get-started/overview')}
                 >
                   Get Started
+                </Link>
+              </div>
+              <div className={styles.buttons + ' ' + styles.buttonDiv}>
+                <Link
+                  className={classnames(
+                    'button button--outline button--secondary button--lg',
+                    styles.getStarted
+                  )}
+                  to={useBaseUrl('docs/about/eta-vs-ejs')}
+                >
+                  Eta vs EJS
                 </Link>
               </div>
             </div>
@@ -178,7 +184,7 @@ function Home() {
                       fontSize: '110px',
                       fontStyle: 'normal',
                       fill: 'var(--ifm-font-base-color)',
-                      stroke: 'none',
+                      stroke: 'none'
                     }}
                   >
                     η

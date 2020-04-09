@@ -9,17 +9,18 @@
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.48",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.48",
+    "@docusaurus/core": "^2.0.0-alpha.50",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.50",
     "ace-builds": "^1.4.8",
     "classnames": "^2.2.6",
-    "eta": "^1.0.0-beta.4",
+    "eta": "^1.0.1",
     "prism-react-renderer": "^1.0.2",
     "react": "^16.8.4",
     "react-ace": "^8.1.0",
     "react-admonitions": "^2.1.0",
     "react-dat-gui": "^4.0.0",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "react-runkit": "^0.9.0"
   },
   "browserslist": {
     "production": [

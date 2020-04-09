@@ -6,33 +6,31 @@ title: Cheatsheet
 ## Conditionals
 
 ```ejs
-{{~if(it.someval === "someothervalue")}}
+<% if (it.someval === "someothervalue") { %>
 Display this!
-{{#else}}
-They don't equal
-{{/if}}
+<% } else { %>
+They're not equal
+<% } %>
 ```
 
 ## Looping over arrays
 
 ```ejs
-{{~each(it.someArray) => val, index}}
-The current array item is {{val}}, the current index is {{index}}
-{{/each}}
+<% users.forEach(function(user){ %>
+  <%= user.first %> <%= user.last %>
+<% }) %>
 ```
 
 ## Looping over objects
 
-```
-{{~foreach(it.someObject) => key, val}}
-The current object key is {{key}}, and the value is {{val}}
-{{/foreach}}
+```ejs
+<% Object.keys(someObject).forEach(function(prop) { %>
+  <%= someObject[prop] %>
+<% }) %>
 ```
 
 ## Logging to the console
 
+```ejs
+<% console.log("The value of it.num is: " + it.num) %>
 ```
-{{!console.log("The value of it.num is: " + it.num);}}
-```
-
-**Note: you must include a semicolon (`;`) or template compilation will fail**

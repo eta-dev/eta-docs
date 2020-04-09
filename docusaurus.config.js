@@ -6,6 +6,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'eta-dev', // Usually your GitHub org/user name.
   projectName: 'eta-docs', // Usually your repo name.
+  scripts: [],
   themeConfig: {
     prism: {
       additionalLanguages: ['ejs'],
@@ -28,12 +29,24 @@ module.exports = {
       links: [
         {
           to: 'docs/get-started/overview',
-          activeBasePath: 'docs',
+          activeBasePath: 'docs/get-started',
           label: 'Docs',
           position: 'left'
         },
-        { to: 'blog', label: 'Blog', position: 'left' },
+        {
+          to: 'docs/about/introduction',
+          activeBasePath: 'docs/about',
+          label: 'About',
+          position: 'left'
+        },
+        {
+          to: 'docs/learn/interactive',
+          activeBasePath: 'docs/learn',
+          label: 'Learn',
+          position: 'left'
+        },
         { to: 'playground', label: 'Playground', position: 'left' },
+        { to: 'blog', label: 'Blog', position: 'right' },
         {
           href: 'https://gitter.im/eta-js/community',
           label: 'Community',

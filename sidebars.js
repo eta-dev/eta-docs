@@ -1,28 +1,6 @@
 module.exports = {
   docs: {
-    Eta: [
-      {
-        type: 'category',
-        label: 'About',
-        items: [
-          'about/introduction',
-          'about/eta-vs-ejs',
-          'about/why-eta',
-          'about/performance',
-          'about/FAQ',
-          'about/how-eta-works'
-        ]
-      },
-      {
-        type: 'category',
-        label: 'Learn',
-        items: ['learn/async'] // TODO: add tutorials on plugins, etc.
-      },
-      {
-        type: 'category',
-        label: 'Resources',
-        items: ['resources/integrations']
-      },
+    'Get Started': [
       'get-started/overview',
       'get-started/install',
       'get-started/security',
@@ -49,5 +27,29 @@ module.exports = {
     ]
 
     // add custom tags, how-to caching, etc.
-  }
+  },
+  about: [
+    'about/introduction',
+    'about/eta-vs-ejs',
+    'about/why-eta',
+    'about/performance',
+    'about/FAQ',
+    'about/how-eta-works'
+  ],
+
+  // add custom tags, how-to caching, etc.
+  Learn: [
+    {
+      type: 'category',
+      label: 'Learn',
+      items: ['learn/async', 'learn/interactive'] // TODO: add tutorials on plugins, etc.
+    },
+    {
+      type: 'category',
+      label: 'Resources',
+      items: ['resources/integrations']
+    }
+  ]
+
+  // add custom tags, how-to caching, etc.
 }

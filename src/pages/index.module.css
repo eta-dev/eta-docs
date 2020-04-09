@@ -98,3 +98,11 @@ html[data-theme='dark'] .loveSection {
 .sponsorImg {
   max-height: 30px;
 }
+
+.getStarted {
+  margin: 1em;
+}
+
+.buttonDiv {
+  display: inline-block;
+}
