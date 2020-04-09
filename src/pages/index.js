@@ -203,68 +203,64 @@ function Home() {
                 A faster, more lightweight, and more configurable EJS
                 alternative
               </h2>
-              <p>
-                Eta vs. EJS:
-                <ul>
-                  <li>
-                    Eta's more lightweight, weighing in at only{' '}
-                    <b>2.2KB gzipped</b>
-                  </li>
-                  <li>
-                    Eta's <b>much faster</b> at compiling and rendering than
-                    EJS. Check out{' '}
-                    <a href='https://cdn.statically.io/gh/nebrelbug/eta/master/browser-tests/benchmark.html'>
-                      these benchmarks
-                    </a>
-                  </li>
-                  <li>
-                    Eta allows <b>left whitespace control</b> (with{' '}
-                    <code>-</code>), something that doesn't work in EJS because
-                    EJS uses <code>-</code> on the left side to indicate that
-                    the value shouldn't be escaped. Instead, Eta uses{' '}
-                    <code>~</code> to output a raw value
-                  </li>
-                  <li>
-                    Eta gives you <b>more flexibility with delimeters</b> -- you
-                    could set them to <code>{'{{'}</code> and{' '}
-                    <code>{'}}'}</code>, for example, while with EJS this isn't
-                    possible
-                  </li>
-                  <li>
-                    Eta adds <b>plugin support</b>
-                  </li>
-                  <li>
-                    Comments in Eta use <code>/* ... */</code> which allows
-                    multiline commenting and is more consistent
-                  </li>
-                  <li>
-                    Eta doesn't break with delimiters inside strings and
-                    comments.{' '}
-                    <i>
-                      Example: <code>{'<%= "%>" %>'}</code> works in Eta, while
-                      it breaks in EJS
-                    </i>
-                  </li>
-                  <li>
-                    Eta exposes <b>Typescript types</b> and distributes a UMD
-                    build
-                  </li>
-                  <li>
-                    Eta allows custom tag-type prefixes.{' '}
-                    <i>
-                      Example: you could change <code>{'<%='}</code> to{' '}
-                      <code>{'<%*'}</code>
-                    </i>
-                  </li>
-                  <li>
-                    Eta throws more informative errors.{' '}
-                    <i>
-                      If you accidentally leave a tag, string, or multiline
-                      comment unclosed, Eta will tell you where the problem is
-                    </i>
-                  </li>
-                </ul>
-              </p>
+              <p>Eta vs. EJS:</p>
+              <ul>
+                <li>
+                  Eta's more lightweight, weighing in at only{' '}
+                  <b>2.2KB gzipped</b>
+                </li>
+                <li>
+                  Eta's <b>much faster</b> at compiling and rendering than EJS.
+                  Check out{' '}
+                  <a href='https://cdn.statically.io/gh/nebrelbug/eta/master/browser-tests/benchmark.html'>
+                    these benchmarks
+                  </a>
+                </li>
+                <li>
+                  Eta allows <b>left whitespace control</b> (with <code>-</code>
+                  ), something that doesn't work in EJS because EJS uses{' '}
+                  <code>-</code> on the left side to indicate that the value
+                  shouldn't be escaped. Instead, Eta uses <code>~</code> to
+                  output a raw value
+                </li>
+                <li>
+                  Eta gives you <b>more flexibility with delimeters</b> -- you
+                  could set them to <code>{'{{'}</code> and <code>{'}}'}</code>,
+                  for example, while with EJS this isn't possible
+                </li>
+                <li>
+                  Eta adds <b>plugin support</b>
+                </li>
+                <li>
+                  Comments in Eta use <code>/* ... */</code> which allows
+                  multiline commenting and is more consistent
+                </li>
+                <li>
+                  Eta doesn't break with delimiters inside strings and comments.{' '}
+                  <i>
+                    Example: <code>{'<%= "%>" %>'}</code> works in Eta, while it
+                    breaks in EJS
+                  </i>
+                </li>
+                <li>
+                  Eta exposes <b>Typescript types</b> and distributes a UMD
+                  build
+                </li>
+                <li>
+                  Eta allows custom tag-type prefixes.{' '}
+                  <i>
+                    Example: you could change <code>{'<%='}</code> to{' '}
+                    <code>{'<%*'}</code>
+                  </i>
+                </li>
+                <li>
+                  Eta throws more informative errors.{' '}
+                  <i>
+                    If you accidentally leave a tag, string, or multiline
+                    comment unclosed, Eta will tell you where the problem is
+                  </i>
+                </li>
+              </ul>
             </div>
             <div className={classnames('col col--6')}>
               {snippets && snippets.length && (
@@ -276,8 +272,8 @@ function Home() {
                     })}
                   >
                     {snippets.map((props, idx) => (
-                      <TabItem value={props.label}>
-                        <Snippet key={idx} {...props} />
+                      <TabItem key={idx} value={props.label}>
+                        <Snippet {...props} />
                       </TabItem>
                     ))}
                   </Tabs>
