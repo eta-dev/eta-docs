@@ -1,3 +1,5 @@
+if (typeof window !== 'undefined') {
+// prevent SSR import
 (function (global) {var process;(function (entrypoint, files, compilations, implicitRequires)
     {
         function cachedRequire(index)
@@ -938,3 +940,4 @@
     if(arguments.length>1)for(var n=1;n<arguments.length;n++)e[n-1]=arguments[n]
     a.push(new T(t,e)),1!==a.length||f||s(p)},T.prototype.run=function(){this.fun.apply(null,this.array)},i.title="browser",i.browser=!0,i.env={},i.argv=[],i.version="",i.versions={},i.on=d,i.addListener=d,i.once=d,i.off=d,i.removeListener=d,i.removeAllListeners=d,i.emit=d,i.prependListener=d,i.prependOnceListener=d,i.listeners=function(t){return[]},i.binding=function(t){throw new Error("process.binding is not supported")},i.cwd=function(){return"/"},i.chdir=function(t){throw new Error("process.chdir is not supported")},i.umask=function(){return 0}})
     ,], function (require) {process = require(14);}) })(window)
+}

@@ -855,7 +855,7 @@
     "@babel/helper-plugin-utils" "^7.8.3"
     "@babel/plugin-transform-typescript" "^7.9.0"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.9.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
   integrity sha512-NE2DtOdufG7R5vnfQUTehdTfNycfUANEtCa9PssN9O/xmTzP4E08UI797ixaei6hBEVL9BI/PsdJS5x7mWoB9Q==
@@ -7375,11 +7375,10 @@ react-color@^2.13.8:
     tinycolor2 "^1.4.1"
 
 react-dat-gui@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/react-dat-gui/-/react-dat-gui-4.0.0.tgz#48fbd985411d4294acfcae84fd79eeb358852eff"
-  integrity sha512-7knFkbdzx1DbpAA/Xb5Y5HCyrsFpr53PjYlLD1DFqzpU/1z9KSOq3Tt1rp44AI0712X5WCpOav56IHZcAnXCGg==
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/react-dat-gui/-/react-dat-gui-4.0.3.tgz#d0ec02455b52ff260bbaeb4309237067128a9cbf"
+  integrity sha512-/k78WRbTWAH7vV8Aw4zbAA9ppgwljWuWtPx/Bja1YlYOWKR1MLe7ZZVH6mZ6OK7RM7bsxdhp9KyWYlPrZq6Vnw==
   dependencies:
-    "@babel/runtime" "^7.5.5"
     classnames "2.2.6"
     lodash.clamp "^4.0.2"
     lodash.clonedeep "^4.3.2"
