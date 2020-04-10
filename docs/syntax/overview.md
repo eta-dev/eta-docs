@@ -36,7 +36,7 @@ The data you call a template with is stored in a variable called `it`, similarly
 ## Helpful Tips:
 
 - `=` and `~` don't have to come immediately following your opening delimiter. For example, `<% = 2 + 4 %>` is still valid
-- The prefix `@` is a shortcode equivalent to `~E.`. \_\_Example: `<% @include("mypartial") %>` is equivalent to `<%~ E.include("mypartial") %>`
+- Eta's configuration is stored in the variable `E`. That's why, for partials, you write `<%~ E.include("mypartial") %>`
 
 ## Inspiration
 

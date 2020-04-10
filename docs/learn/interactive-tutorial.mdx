@@ -20,5 +20,5 @@ Eta.render('Hi <%= it.name %>', {name: 'Person'})`}
  
 Eta.templates.define("mypartial", Eta.compile("PARTIAL SPEAKING"))
  
-Eta.render('This is a partial: <% @include("mypartial") %>', {name: 'Person'})`}
+Eta.render('This is a partial: <%~ E.include("mypartial") %>', {name: 'Person'})`}
 />

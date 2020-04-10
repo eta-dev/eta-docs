@@ -39,9 +39,9 @@ write any valid JS expression inside interpolate tags: */ %>
   },
   {
     label: 'Partials',
-    config: `<% @include("mypartial") %>
+    config: `<%~ E.include("mypartial") %>
 
-<% @includeFile('./navbar', {pages: [
+<%~ E.includeFile('./navbar', {pages: [
   'home',
   'about',
   'users'
