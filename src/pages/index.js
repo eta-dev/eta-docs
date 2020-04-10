@@ -212,7 +212,7 @@ function Home() {
                 <li>
                   Eta's <b>much faster</b> at compiling and rendering than EJS.
                   Check out{' '}
-                  <a href='https://cdn.statically.io/gh/nebrelbug/eta/master/browser-tests/benchmark.html'>
+                  <a href='https://cdn.statically.io/gh/eta-dev/eta/master/browser-tests/benchmark.html'>
                     these benchmarks
                   </a>
                 </li>
