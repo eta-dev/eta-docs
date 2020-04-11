@@ -48,7 +48,7 @@ module.exports = {
         { to: 'playground', label: 'Playground', position: 'left' },
         { to: 'blog', label: 'Blog', position: 'right' },
         {
-          href: 'https://gitter.im/eta-js/community',
+          href: 'https://gitter.im/eta-dev/community',
           label: 'Community',
           position: 'right'
         },
