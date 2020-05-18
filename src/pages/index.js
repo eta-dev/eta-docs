@@ -81,9 +81,9 @@ const features = [
     imageUrl: 'img/undraw/collecting.svg',
     description: (
       <>
-        Eta was designed by the team who created Squirrelly as an alternative to
-        EJS. Though it has almost-compatible syntax, it's more configurable and
-        has a minzipped bundle cost of only ~2KB!
+        Eta was designed by the team who created Squirrelly, as an alternative
+        to EJS. Though it has almost-compatible syntax to EJS, it's more
+        configurable and has a minzipped bundle cost of only ~2KB!
       </>
     )
   },
@@ -212,7 +212,7 @@ function Home() {
                 <li>
                   Eta's <b>much faster</b> at compiling and rendering than EJS.
                   Check out{' '}
-                  <a href='https://cdn.statically.io/gh/eta-dev/eta/master/browser-tests/benchmark.html'>
+                  <a href='https://ghcdn.rawgit.org/eta-dev/eta/master/browser-tests/benchmark.html'>
                     these benchmarks
                   </a>
                 </li>
