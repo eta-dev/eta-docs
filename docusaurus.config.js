@@ -1,99 +1,99 @@
 module.exports = {
-  title: 'Eta',
-  tagline: 'An incredibly fast JS template engine',
-  url: 'https://eta.js.org',
-  baseUrl: '/',
-  favicon: 'img/favicon.ico',
-  organizationName: 'eta-dev', // Usually your GitHub org/user name.
-  projectName: 'eta-docs', // Usually your repo name.
+  title: "Eta",
+  tagline: "An incredibly fast JS template engine",
+  url: "https://eta.js.org",
+  baseUrl: "/",
+  favicon: "img/favicon.ico",
+  organizationName: "eta-dev", // Usually your GitHub org/user name.
+  projectName: "eta-docs", // Usually your repo name.
   scripts: [],
   themeConfig: {
     prism: {
-      additionalLanguages: ['ejs'],
-      theme: require('prism-react-renderer/themes/vsDark')
+      additionalLanguages: ["ejs"],
+      theme: require("prism-react-renderer/themes/vsDark")
     },
     googleAnalytics: {
-      trackingID: 'UA-162086718-1'
+      trackingID: "UA-162086718-1"
     },
     algolia: {
-      apiKey: '8ab526ea88555e09891cf30ccbd4ce15',
-      indexName: 'eta_js',
+      apiKey: "8ab526ea88555e09891cf30ccbd4ce15",
+      indexName: "eta_js",
       algoliaOptions: {} // Optional, if provided by Algolia
     },
     navbar: {
-      title: 'Eta',
+      title: "Eta",
       logo: {
-        alt: 'Greek Letter Eta',
-        src: 'img/logo.svg'
+        alt: "Greek Letter Eta",
+        src: "img/logo.svg"
       },
-      links: [
+      items: [
         {
-          to: 'docs/get-started/overview',
-          activeBasePath: 'docs/get-started',
-          label: 'Docs',
-          position: 'left'
+          to: "docs/get-started/overview",
+          activeBasePath: "docs/get-started",
+          label: "Docs",
+          position: "left"
         },
         {
-          to: 'docs/about/introduction',
-          activeBasePath: 'docs/about',
-          label: 'About',
-          position: 'left'
+          to: "docs/about/introduction",
+          activeBasePath: "docs/about",
+          label: "About",
+          position: "left"
         },
         {
-          to: 'docs/learn/interactive',
-          activeBasePath: 'docs/learn',
-          label: 'Learn',
-          position: 'left'
+          to: "docs/learn/interactive",
+          activeBasePath: "docs/learn",
+          label: "Learn",
+          position: "left"
         },
-        { to: 'playground', label: 'Playground', position: 'left' },
-        { to: 'blog', label: 'Blog', position: 'right' },
+        { to: "playground", label: "Playground", position: "left" },
+        { to: "blog", label: "Blog", position: "right" },
         {
-          href: 'https://gitter.im/eta-dev/community',
-          label: 'Community',
-          position: 'right'
+          href: "https://gitter.im/eta-dev/community",
+          label: "Community",
+          position: "right"
         },
         {
-          href: 'https://github.com/eta-dev/eta',
-          label: 'GitHub',
-          position: 'right'
+          href: "https://github.com/eta-dev/eta",
+          label: "GitHub",
+          position: "right"
         }
       ]
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Docs',
+          title: "Docs",
           items: [
             {
-              label: 'Get Started',
-              to: 'docs/get-started/overview'
+              label: "Get Started",
+              to: "docs/get-started/overview"
             },
             {
-              label: 'About',
-              to: 'docs/about/introduction'
+              label: "About",
+              to: "docs/about/introduction"
             }
           ]
         },
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'Gitter',
-              href: 'https://gitter.im/eta-js/community'
+              label: "Gitter",
+              href: "https://gitter.im/eta-js/community"
             }
           ]
         },
         {
-          title: 'Social',
+          title: "Social",
           items: [
             {
-              label: 'Blog',
-              to: 'blog'
+              label: "Blog",
+              to: "blog"
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/eta-dev/eta'
+              label: "GitHub",
+              href: "https://github.com/eta-dev/eta"
             }
           ]
         }
@@ -103,14 +103,14 @@ module.exports = {
   },
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "@docusaurus/preset-classic",
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/eta-dev/eta-docs/edit/master/'
+          sidebarPath: require.resolve("./sidebars.js"),
+          editUrl: "https://github.com/eta-dev/eta-docs/edit/master/"
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css')
+          customCss: require.resolve("./src/css/custom.css")
         }
       }
     ]
