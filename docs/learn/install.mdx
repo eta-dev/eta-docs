@@ -5,8 +5,8 @@ sidebar_label: Installation
 description: How to install Eta for use in Node.js or the browser
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
 
 Eta tries to follow best practices, and provides a UMD build to support most JS loading options, like ES modules, CommonJS, and AMD.
 
@@ -16,11 +16,14 @@ Eta tries to follow best practices, and provides a UMD build to support most JS 
   defaultValue="node"
   values={[
     { label: 'Node.js', value: 'node' },
+    {label: 'Deno', value: 'deno'},
     { label: 'Browser (CDN)', value: 'browser' }
   ]
 }>
 
+
 <TabItem value="node">
+
 
 ```sh
 npm install eta --save
@@ -37,13 +40,26 @@ yarn add eta
 Eta is packaged as a UMD module, so you can require with CommonJS, import using ES Modules, or use AMD.
 
 ```js
-import * as Eta from 'eta'
+import * as Eta from "eta"
 // or
-var Eta = require('eta')
+var Eta = require("eta")
 ```
 
 </TabItem>
+
+
+<TabItem value="deno">
+
+
+```js
+import * as eta from "https://deno.land/x/eta@v1.6.0/mod.ts"
+```
+
+_Note: replace `1.6.0` with the current version_
+
+</TabItem>
 <TabItem value="browser">
+
 
 ### Unpkg
 
@@ -60,6 +76,7 @@ var Eta = require('eta')
 This makes Eta available through the global `Eta` variable, and importable using ES modules, CommonJS, and AMD.
 
 </TabItem>
+
 
 </Tabs>
 

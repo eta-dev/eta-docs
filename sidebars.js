@@ -1,11 +1,6 @@
 module.exports = {
   docs: {
-    "Get Started": [
-      "get-started/overview",
-      "get-started/install",
-      "get-started/security",
-      "get-started/first-template"
-    ],
+    Overview: ["docs-overview"],
     "Template Syntax": [
       "syntax/overview",
       "syntax/cheatsheet",
@@ -14,7 +9,8 @@ module.exports = {
       "syntax/auto-escaping",
       "syntax/evaluate",
       "syntax/partials",
-      "syntax/whitespace-control"
+      "syntax/whitespace-control",
+      "syntax/caveats"
     ],
     API: [
       "api/overview",
@@ -23,13 +19,14 @@ module.exports = {
       "api/configuration",
       "api/file-handling",
       "api/parsing",
-      "api/templates-partials"
+      "api/templates-partials",
+      "api/containers"
     ]
 
     // add custom tags, how-to caching, etc.
   },
   about: [
-    "about/introduction",
+    "about/overview",
     "about/eta-vs-ejs",
     "about/why-eta",
     "about/performance",
@@ -42,12 +39,39 @@ module.exports = {
     {
       type: "category",
       label: "Learn",
-      items: ["learn/async", "learn/interactive"] // TODO: add tutorials on plugins, etc.
+      items: [
+        "learn/overview",
+        "learn/install",
+        "learn/security",
+        "learn/first-template",
+        "learn/partials",
+        "learn/plugins",
+        "learn/file-handling",
+        "learn/async"
+      ], // TODO: add tutorials on plugins, etc.
+      collapsed: false
+    },
+    {
+      type: "category",
+      label: "Examples",
+      items: [
+        "examples/overview",
+        "examples/interactive",
+        "examples/express",
+        "examples/node",
+        "examples/deno"
+      ],
+      collapsed: false
     },
     {
       type: "category",
       label: "Resources",
-      items: ["resources/integrations"]
+      items: [
+        "resources/overview",
+        "resources/integrations",
+        "resources/tutorials-and-articles"
+      ],
+      collapsed: false
     }
   ]
 

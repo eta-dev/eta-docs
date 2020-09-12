@@ -9,23 +9,23 @@ Similarly to many other libraries, Eta allows you to customize its behavior via 
 
 ## List of options
 
-| Option       | Description                                        |            Type            |          Default          | Required? |
-| ------------ | :------------------------------------------------- | :------------------------: | :-----------------------: | :-------: |
-| `async`      | Whether to generate async templates                |         `boolean`          |          `false`          |    Yes    |
-| `autoEscape` | Whether to automatically XML-escape                |         `boolean`          |                           |    Yes    |
-| `autoTrim`   | Configure automatic whitespace trimming            |   [autoTrim](#autotrim)    |      `[false, "nl"`]      |    Yes    |
-| `cache`      | Cache templates by `name` or `filename`            |         `boolean`          |                           |    Yes    |
-| `e`          | XML-escaping function                              |         `Function`         |    `defaultConfig.e`]     |    Yes    |
-| `filename`   | Absolute filepath of template (for caching)        |          `string`          |        `undefined`        |    No     |
-| `name`       | Template name (for caching)                        |          `string`          |        `undefined`        |    No     |
-| `plugins`    | Plugins array                                      |    [plugins](#plugins)     |  `defaultConfig.plugins`  |    Yes    |
-| `root`       | Base filepath. Defaults to `"\"` internally        |          `string`          |        `undefined`        |    No     |
-| `templates`  | Object containing templates                        | `Cacher<TemplateFunction>` | `defaultConfig.templates` |    Yes    |
-| `tags`       | Template delimiters. [CAVEATS](#delimiter-caveats) |     `[string, string]`     |      `["{{", "}}"]`       |    Yes    |
-| `useWith`    | Use `with(){}` to have data scope as global        |         `boolean`          |        `undefined`        |    No     |
-| `varName`    | Name of data object                                |          `string`          |          `"it"`           |    Yes    |
-| `view cache` | Overrides `cache`                                  |         `boolean`          |        `undefined`        |    No     |
-| `views`      | Absolute filepath to views directory               |          `string`          |        `undefined`        |    No     |
+| Option       | Description                                 |            Type            |      Default       | Required? |
+| ------------ | :------------------------------------------ | :------------------------: | :----------------: | :-------: |
+| `async`      | Whether to generate async templates         |         `boolean`          |      `false`       |    Yes    |
+| `autoEscape` | Whether to automatically XML-escape         |         `boolean`          |                    |    Yes    |
+| `autoTrim`   | Configure automatic whitespace trimming     |   [autoTrim](#autotrim)    |  `[false, "nl"]`   |    Yes    |
+| `cache`      | Cache templates by `name` or `filename`     |         `boolean`          |                    |    Yes    |
+| `e`          | XML-escaping function                       |         `Function`         |     `config.e`     |    Yes    |
+| `filename`   | Absolute filepath of template (for caching) |          `string`          |    `undefined`     |    No     |
+| `name`       | Template name (for caching)                 |          `string`          |    `undefined`     |    No     |
+| `plugins`    | Plugins array                               |    [plugins](#plugins)     |  `config.plugins`  |    Yes    |
+| `root`       | Base filepath. Defaults to `"\"` internally |          `string`          |    `undefined`     |    No     |
+| `templates`  | Object containing templates                 | `Cacher<TemplateFunction>` | `config.templates` |    Yes    |
+| `tags`       | Template delimiters                         |     `[string, string]`     |   `["<%", "%>"]`   |    Yes    |
+| `useWith`    | Use `with(){}` to have data scope as global |         `boolean`          |    `undefined`     |    No     |
+| `varName`    | Name of data object                         |          `string`          |       `"it"`       |    Yes    |
+| `view cache` | Overrides `cache`                           |         `boolean`          |    `undefined`     |    No     |
+| `views`      | Absolute filepath to views directory        |          `string`          |    `undefined`     |    No     |
 
 ### Delimiter Caveats
 
@@ -56,9 +56,9 @@ When an array is passed, Eta uses the equivalent options on the left or right si
 | `processAST`      | Function that manipulates _Eta_ syntax tree       | `Function` |
 | `processFnString` | Function that manipulates _Eta_ template function | `Function` |
 
-## `defaultConfig`
+## `config`
 
-`Eta.defaultConfig` returns the default configuration. See above.
+`Eta.config` returns Eta's base ("global") configuration. See above.
 
 ## `getConfig`
 
@@ -73,5 +73,5 @@ High-level APIs like `render` and `compile` call `getConfig` internally, but you
 ### Example
 
 ```js
-Eta.compileToString(myTemplate, Eta.getConfig({ tags: ['{{', '}}'] }))
+Eta.compileToString(myTemplate, Eta.getConfig({ tags: ["{{", "}}"] }))
 ```

@@ -1,5 +1,5 @@
 ---
-id: introducing-eta
+slug: introducing-eta
 title: Introducing Eta
 author: Ben Gubler
 author_title: Lead Maintainer

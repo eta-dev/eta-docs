@@ -1,12 +1,12 @@
 module.exports = {
   title: "Eta",
-  tagline: "An incredibly fast JS template engine",
+  tagline: "An incredibly fast embedded JS template engine",
   url: "https://eta.js.org",
   baseUrl: "/",
   favicon: "img/favicon.ico",
   organizationName: "eta-dev", // Usually your GitHub org/user name.
   projectName: "eta-docs", // Usually your repo name.
-  scripts: [],
+  scripts: ["https://embed.runkit.com"],
   themeConfig: {
     prism: {
       additionalLanguages: ["ejs"],
@@ -28,21 +28,21 @@ module.exports = {
       },
       items: [
         {
-          to: "docs/get-started/overview",
-          activeBasePath: "docs/get-started",
+          to: "docs/learn",
+          activeBasePath: "docs/learn",
+          label: "Learn",
+          position: "left"
+        },
+        {
+          to: "docs",
+          activeBaseRegex: "docs$|docs\\/(get-started|api|syntax)",
           label: "Docs",
           position: "left"
         },
         {
-          to: "docs/about/introduction",
+          to: "docs/about",
           activeBasePath: "docs/about",
           label: "About",
-          position: "left"
-        },
-        {
-          to: "docs/learn/interactive",
-          activeBasePath: "docs/learn",
-          label: "Learn",
           position: "left"
         },
         { to: "playground", label: "Playground", position: "left" },
@@ -71,7 +71,7 @@ module.exports = {
             },
             {
               label: "About",
-              to: "docs/about/introduction"
+              to: "docs/about"
             }
           ]
         },

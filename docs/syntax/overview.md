@@ -1,6 +1,7 @@
 ---
 id: overview
 title: Syntax Overview
+slug: /syntax
 ---
 
 ## Definitions

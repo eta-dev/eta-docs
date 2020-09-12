@@ -18,5 +18,4 @@ _Don't use these variables in your templates_
 
 ## Delimiters
 
-- Delimiters have to be regular-expression escaped
 - Your closing delimeter can't contain `'`, `"`, or `\`` (_probably: I haven't actually tried it_)

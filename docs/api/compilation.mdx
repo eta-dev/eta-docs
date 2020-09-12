@@ -3,7 +3,7 @@ id: compilation
 title: Compilation
 ---
 
-import Hint from "react-admonitions";
+import Hint from "react-admonitions"
 
 ## `Eta.compile`
 
@@ -13,22 +13,23 @@ Compiles a string into a template function.
 **Syntax**
 
 ```js
-Eta.compile (str, options)
-// returns a function that can be called with (data, options, [cb])
-// note: options must be a valid config object
+Eta.compile(str, config)
+// returns a function that can be called with (data, config, [cb])
+// note: config must be a valid configuration object
 ```
-See the page on [options](./configuration)
+
+See the page on [config](./configuration)
 
 **Example**
 
 ```js
-var myTemplate = "Hi, my name is <%= it.name %>";
-var compiled = Eta.compile(myTemplate);
+var myTemplate = "Hi, my name is <%= it.name %>"
+var compiled = Eta.compile(myTemplate)
 
 // Returns a function:
 // function anonymous(it,c,cb ) { var tR='';tR+='Hi, my name is ';tR+=E.e(it.name);if(cb){cb(null,tR)} return tR }
 
-compiled({ name: "Johnny Appleseed" }, Eta.defaultConfig);
+compiled({ name: "Johnny Appleseed" }, Eta.config)
 //Returns "Hi, my name is Johnny Appleseed"
 ```
 
@@ -36,4 +37,6 @@ compiled({ name: "Johnny Appleseed" }, Eta.defaultConfig);
     
 Many template engines offer you the option to <b>Compile</b> (which just renders your template) or <b>Precompile</b> (which turns your template into a function ahead of time). Eta precompiles automatically, but is still faster than other engines.
 
+
 </Hint>
+
