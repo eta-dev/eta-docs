@@ -45,6 +45,7 @@ module.exports = {
         "learn/security",
         "learn/first-template",
         "learn/partials",
+        "learn/configuration",
         "learn/plugins",
         "learn/file-handling",
         "learn/async"
