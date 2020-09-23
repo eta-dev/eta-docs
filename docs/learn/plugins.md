@@ -1,10 +1,12 @@
 ---
 id: plugins
 title: Plugins
-description: Learn the basics of Eta plugins by creating a plugin that adds layout support to Eta
+description: Learn the basics of Eta plugins by creating a simple plugin
 ---
 
 Here you'll learn how to create a plugin for Eta by creating a plugin that enables layout support.
+
+_Note: this tutorial was created before Eta got [built-in layout support](./layouts). This plugin is no longer necessary if you want to use layouts, but we're leaving this tutorial up because it is a helpful example_
 
 :::tip
 
@@ -50,8 +52,10 @@ var app = express()
 var Eta = require("eta")
 var EtaInherit = require("./plugin-inheritance")
 
-Eta.defaultConfig.plugins = [EtaInherit]
-Eta.defaultConfig.cache = false
+Eta.configure({
+  plugins: [EtaInherit],
+  cache: false
+})
 
 app.engine("eta", Eta.renderFile)
 app.set("view engine", "eta")

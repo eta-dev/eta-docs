@@ -46,6 +46,12 @@ write any valid JS expression inside interpolate tags: */ %>
   'about',
   'users'
 ] }) %>`
+  },
+  {
+    label: "Layouts",
+    config: `<% layout("layouts/basic") %>
+
+<p>This will be rendered into a layout</p>`
   }
 ]
 
@@ -225,6 +231,10 @@ function Home() {
                   <a href="https://ghcdn.rawgit.org/eta-dev/eta/master/browser-tests/benchmark.html">
                     these benchmarks
                   </a>
+                </li>
+                <li>
+                  Eta supports <b>layouts</b> out of the box (
+                  <a href="/docs/learn/layouts">learn more</a>)
                 </li>
                 <li>
                   Eta allows <b>left whitespace control</b> (with <code>-</code>
