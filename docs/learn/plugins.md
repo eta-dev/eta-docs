@@ -10,7 +10,7 @@ _Note: this tutorial was created before Eta got [built-in layout support](./layo
 
 :::tip
 
-Feel free to publish NPM/Deno packages based on this code! A good rule of thumb is to begin plugin packages with **eta-plugin-**. For example, you could create a plugin called **eta-plugin-layouts**.
+Feel free to publish NPM/Deno packages based on this code! A good rule of thumb is to begin plugin packages with **eta_plugin_**. For example, you could create a plugin called **eta_plugin_layouts**.
 
 :::
 
