@@ -260,8 +260,7 @@ class Playground extends React.Component {
   }
 }
 
-class App extends React.Component {
-  render() {
+function App() {
     return (
       <Layout
         title='Eta Playground'
@@ -270,7 +269,6 @@ class App extends React.Component {
         <Playground />
       </Layout>
     )
-  }
 }
 
 export default App
