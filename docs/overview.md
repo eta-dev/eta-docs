@@ -8,7 +8,7 @@ Congratulations on deciding to use Eta! These docs will be your guide as you lea
 
 :::tip
 
-These docs aren't 100% complete. If you just want to learn how to use Eta, go to [Learn](./learn)
+These docs aren't 100% complete. If you just want to learn how to use Eta, go to [Learn](./playground)
 
 :::
 
