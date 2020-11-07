@@ -14,7 +14,7 @@ My favorite food is <%= it.food %>
 ```
 
 ```js title="app.ts"
-import { renderFile, configure } from "https://deno.land/x/eta@v1.6.0/mod.ts"
+import { renderFile, configure } from "https://deno.land/x/eta@v1.11.0/mod.ts"
 
 const viewPath = `${Deno.cwd()}/views/`
 
