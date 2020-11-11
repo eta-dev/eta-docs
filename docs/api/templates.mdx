@@ -20,7 +20,7 @@ Eta.render('... <%~ include("my-partial") %>', {})
 // To call a partial w/ data:
 Eta.templates.define("my-partial-2", Eta.compile("Name: <%= it.name %>"))
 Eta.render(
-  '... <%~ include("my-partial", {name: it.name}) %>',
+  '... <%~ include("my-partial-2", {name: it.name}) %>',
   // The 2nd argument passed to `include` is the data. You could also pass `it` to forward all data
   { name: "Ben" }
 )
