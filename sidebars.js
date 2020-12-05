@@ -20,7 +20,8 @@ module.exports = {
       "api/file-handling",
       "api/parsing",
       "api/templates-partials",
-      "api/containers"
+      "api/containers",
+      "api/plugin-hooks"
     ]
 
     // add custom tags, how-to caching, etc.
