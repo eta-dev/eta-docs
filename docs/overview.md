@@ -8,13 +8,13 @@ Congratulations on deciding to use Eta! These docs will be your guide as you lea
 
 :::tip
 
-These docs aren't 100% complete. If you just want to learn how to use Eta, go to [Learn](./learn)
+These docs aren't 100% complete. If you just want to learn how to use Eta, go to [Learn](./docs/learn)
 
 :::
 
 ## For people who learn by example
 
-We recommend going [here](./learn) to find tutorials and lots of example code!
+We recommend going [here](./docs/learn) to find tutorials and lots of example code!
 
 ## For API lovers
 
