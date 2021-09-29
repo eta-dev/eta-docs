@@ -15,7 +15,7 @@ Put a reference between the opening and closing delimeters (by default `<%`and `
 
 **The data you call a template with is stored in an object named `it` by default.**
 
-Since Eta templates parse into JavaScript, you can write a reference using dot notation: `<p>User's last name: <%= it.user.lastName %>` or bracket notation: `<p>User's last name: <%= it.user['lastName'] %>`.
+Since Eta templates parse into JavaScript, you can write a reference using dot notation: `<p>User's last name: <%= it.user.lastName %>` or bracket notation: `<p>User's last name: <%= it.user['lastName'] %>`. You can also use ternary operators because of this: `<p>User's last name: <%= it.loggedIn ? it.user.lastName : "N/A" %></p>`.
 
 import Hint from 'react-admonitions'
 
