@@ -3,10 +3,6 @@ id: express
 title: Eta with Express.js
 ---
 
-:::danger
-Never put objects on the `req` object straight in as the data, this can allow hackers to run XSS attacks. Always make sure you are destructuring the values on objects like `req.query` and `req.params`. 
-:::
-
 ```ejs title="views/template.eta"
 My favorite template engine is <%= it.favorite %> because it is: <%= it.reasons.join(', ') %>
 
@@ -16,6 +12,11 @@ My favorite template engine is <%= it.favorite %> because it is: <%= it.reasons.
 ```ejs title="views/footer.eta"
 <footer>Signed: <%= it.name %> </footer>
 ```
+
+:::danger
+Never put objects on the `req` object straight in as the data, this can allow hackers to run XSS attacks. Always make sure you are destructuring the values on objects like `req.query` and `req.params`. 
+:::
+
 
 ```js title="index.js"
 var express = require("express")
