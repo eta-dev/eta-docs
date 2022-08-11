@@ -9,4 +9,4 @@ Eta's faster than virtually all other template engines out there.
 
 ## Run tests in your browser!
 
-https://ghcdn.rawgit.org/eta-dev/eta/694976ffcfbe5fc2e5ae3f891549849a3bba9fdd/browser-tests/benchmark.html
+https://rawcdn.githack.com/eta-dev/eta/9c8e4263d3a559444a3881a85c1607bf344d0b28/browser-tests/benchmark.html
