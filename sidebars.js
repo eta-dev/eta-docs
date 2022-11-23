@@ -62,7 +62,8 @@ module.exports = {
         "examples/interactive",
         "examples/express",
         "examples/node",
-        "examples/deno"
+        "examples/deno",
+        "examples/bun"
       ],
       collapsed: false
     },
