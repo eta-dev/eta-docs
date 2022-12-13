@@ -3,8 +3,6 @@ id: compilation
 title: Compilation
 ---
 
-import Hint from "react-admonitions"
-
 ## `Eta.compile`
 
 Compiles a string into a template function.
@@ -33,10 +31,10 @@ compiled({ name: "Johnny Appleseed" }, Eta.config)
 //Returns "Hi, my name is Johnny Appleseed"
 ```
 
-<Hint type="note">
+:::note
     
 Many template engines offer you the option to <b>Compile</b> (which just renders your template) or <b>Precompile</b> (which turns your template into a function ahead of time). Eta precompiles automatically, but is still faster than other engines.
 
 
-</Hint>
+:::
 

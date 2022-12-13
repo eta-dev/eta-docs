@@ -3,11 +3,9 @@ id: file-handling
 title: File Handling
 ---
 
-import Hint from "react-admonitions"
-
 It is really easy to use Eta with Express. First, you must [install Eta](https://eta.js.org/docs/learn/install), then you must add an `app.engine()` line with the file extension (here, we use `.eta`) as the first parameter and the Eta module as the second parameter (`app.set('view engine', 'eta')`):
 
-<Hint type="note">
+:::note
     
 Eta works out-of-the-box with Express.js.
 
@@ -20,11 +18,5 @@ app.engine("html", require("eta").renderFile)
 app.set("view engine", "eta")
 ```
 
-</Hint>
+:::
 
-
-<!-- ## Syntax
-
-```js
-
-``` -->

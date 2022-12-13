@@ -4,7 +4,6 @@ title: About
 slug: /about
 ---
 
-import Hint from "react-admonitions"
 
 Eta is an embedded JS template engine, created by the team who made Squirrelly.
 
@@ -14,10 +13,10 @@ Eta doesn't just limit you to HTML--you can use it with any language, and custom
 
 ![](https://img.shields.io/bundlephobia/minzip/eta@latest.svg)
 
-<Hint type="note">
+:::note
 
 
 Eta is consistently faster than most other template engines, according to benchmarks
 
-</Hint>
+:::
 
