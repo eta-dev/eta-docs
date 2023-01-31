@@ -3,11 +3,11 @@ import Layout from "@theme/Layout"
 import styles from "./index.module.css"
 import datStyles from "./dat-gui.module.css"
 import CodeBlock from "@theme/CodeBlock"
-import * as Eta from "eta"
-
+var Eta = require("eta")
+// import * as Eta from "eta/browser.js"
 import DatGui, { DatBoolean, DatSelect, DatString } from "react-dat-gui"
 
-require("react-dat-gui/dist/index.css")
+import "./react-dat-gui.css"
 
 // Below so it doesn't err on build
 const Editor = (props) => {
