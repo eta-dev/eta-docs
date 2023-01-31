@@ -4,15 +4,11 @@ title: API Overview
 slug: /api
 ---
 
-import Hint from "react-admonitions"
+:::note
 
-<Hint type="note">
-    
 You can view the TypeDoc API documentation for Eta at [eta-dev.github.io/eta/modules/](https://eta-dev.github.io/eta/modules/_index_.html).
 
-
-</Hint>
-
+:::
 
 ## Big list of API options
 

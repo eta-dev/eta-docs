@@ -3,10 +3,7 @@ id: integrations
 title: Integrations
 ---
 
-import Hint from "react-admonitions"
-
-<Hint type='warning'>
-
+:::caution
 
 None of these are:
 
@@ -16,8 +13,7 @@ None of these are:
 
 Use at your own risk!
 
-</Hint>
-
+:::
 
 ## Integrations
 

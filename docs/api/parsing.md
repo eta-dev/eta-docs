@@ -3,13 +3,11 @@ id: parsing
 title: Parsing
 ---
 
-import Hint from 'react-admonitions'
-
-<Hint type="note">
+:::note
     
 You won't need to use or understand Parsing unless you're writing native helpers or plugins.
 
-</Hint>
+:::
 
 ## Syntax
 

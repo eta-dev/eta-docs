@@ -3,12 +3,12 @@ id: first-template
 title: Your First Template
 ---
 
-import Embed from "@theme/RunkitEmbed"
-
 This is about as simple as you can get.
 
-<Embed
-  source={`var Eta = require('eta')
+```js
+
+var Eta = require('eta')
   
 Eta.render('The answer to everything is <%= it.answer %>', { answer: 42 })`}
-/>
+
+```

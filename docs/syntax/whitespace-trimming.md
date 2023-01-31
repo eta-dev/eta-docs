@@ -2,15 +2,14 @@
 id: whitespace-control
 title: Whitespace Control
 ---
-import Hint from 'react-admonitions'
 
 Eta allows you to control the whitespace before or after tags.
 
-<Hint type="note" >
+:::note
 
 Eta borrows its whitespace control syntax from EJS
 
-</Hint>
+:::
 
 ## Basic Syntax
 

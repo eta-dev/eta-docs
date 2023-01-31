@@ -59,7 +59,6 @@ module.exports = {
       label: "Examples",
       items: [
         "examples/overview",
-        "examples/interactive",
         "examples/express",
         "examples/node",
         "examples/deno",

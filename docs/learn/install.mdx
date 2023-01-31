@@ -12,18 +12,8 @@ Eta tries to follow best practices, and provides a UMD build to support most JS 
 
 ## Install Eta
 
-<Tabs
-  defaultValue="node"
-  values={[
-    { label: 'Node.js', value: 'node' },
-    {label: 'Deno', value: 'deno'},
-    { label: 'Browser (CDN)', value: 'browser' }
-  ]
-}>
-
-
-<TabItem value="node">
-
+<Tabs>
+  <TabItem value="node" label="Node.js" default>
 
 ```sh
 npm install eta --save
@@ -45,21 +35,17 @@ import * as Eta from "eta"
 var Eta = require("eta")
 ```
 
-</TabItem>
-
-
-<TabItem value="deno">
-
-
+  </TabItem>
+  <TabItem value="deno" label="Deno">
+    
 ```js
 import * as eta from "https://deno.land/x/eta@v1.6.0/mod.ts"
 ```
 
 _Note: replace `1.6.0` with the current version_
 
-</TabItem>
-<TabItem value="browser">
-
+  </TabItem>
+  <TabItem value="browser" label="Browser (CDN)">
 
 ### Unpkg
 
@@ -75,8 +61,5 @@ _Note: replace `1.6.0` with the current version_
 
 This makes Eta available through the global `Eta` variable, and importable using ES modules, CommonJS, and AMD.
 
-</TabItem>
-
-
+  </TabItem>
 </Tabs>
-

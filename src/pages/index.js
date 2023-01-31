@@ -5,7 +5,7 @@ import Link from "@docusaurus/Link"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import useBaseUrl from "@docusaurus/useBaseUrl"
 import styles from "./index.module.css"
-import CodeSnippet from "@site/src/theme/CodeSnippet"
+import CodeBlock from "@theme/CodeBlock"
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
 
@@ -56,7 +56,7 @@ write any valid JS expression inside interpolate tags: */ %>
 ]
 
 function Snippet({ label, config }) {
-  return <CodeSnippet className={styles.configSnippet} snippet={config} />
+  return <CodeBlock language="ejs">{config}</CodeBlock>
 }
 
 const features = [
