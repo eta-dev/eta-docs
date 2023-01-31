@@ -2,9 +2,7 @@ import React from "react"
 import Layout from "@theme/Layout"
 import styles from "./index.module.css"
 import datStyles from "./dat-gui.module.css"
-import CodeBlock from "@theme/CodeBlock"
-var Eta = require("eta")
-// import * as Eta from "eta/browser.js"
+import * as Eta from "eta"
 import DatGui, { DatBoolean, DatSelect, DatString } from "react-dat-gui"
 
 import "./react-dat-gui.css"
