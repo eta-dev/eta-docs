@@ -1,8 +1,6 @@
 {
   "docs": {
-    "Overview": [
-      "docs-overview"
-    ],
+    "Overview": ["docs-overview"],
     "Template Syntax": [
       "syntax/overview",
       "syntax/cheatsheet",
@@ -24,55 +22,38 @@
       "api/templates-partials",
       "api/containers",
       "api/plugin-hooks"
+    ],
+    "About": [
+      "about/overview",
+      "about/eta-vs-ejs",
+      "about/why-eta",
+      "about/performance",
+      "about/FAQ",
+      "about/how-eta-works"
+    ],
+    "Learn": [
+      "learn/overview",
+      "learn/install",
+      "learn/security",
+      "learn/first-template",
+      "learn/partials",
+      "learn/layouts",
+      "learn/configuration",
+      "learn/plugins",
+      "learn/file-handling",
+      "learn/async"
+    ],
+    "Examples": [
+      "examples/overview",
+      "examples/express",
+      "examples/node",
+      "examples/deno",
+      "examples/bun"
+    ],
+    "Resources": [
+      "resources/overview",
+      "resources/integrations",
+      "resources/tutorials-and-articles"
     ]
-  },
-  "about": [
-    "about/overview",
-    "about/eta-vs-ejs",
-    "about/why-eta",
-    "about/performance",
-    "about/FAQ",
-    "about/how-eta-works"
-  ],
-  "learn": [
-    {
-      "type": "category",
-      "label": "Learn",
-      "items": [
-        "learn/overview",
-        "learn/install",
-        "learn/security",
-        "learn/first-template",
-        "learn/partials",
-        "learn/layouts",
-        "learn/configuration",
-        "learn/plugins",
-        "learn/file-handling",
-        "learn/async"
-      ],
-      "collapsed": false
-    },
-    {
-      "type": "category",
-      "label": "Examples",
-      "items": [
-        "examples/overview",
-        "examples/express",
-        "examples/node",
-        "examples/deno",
-        "examples/bun"
-      ],
-      "collapsed": false
-    },
-    {
-      "type": "category",
-      "label": "Resources",
-      "items": [
-        "resources/overview",
-        "resources/integrations",
-        "resources/tutorials-and-articles"
-      ],
-      "collapsed": false
-    }
-  ]
+  }
 }
