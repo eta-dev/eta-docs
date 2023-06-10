@@ -36,7 +36,13 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/eta-dev/eta-docs/tree/master/"
+          editUrl: "https://github.com/eta-dev/eta-docs/tree/master/",
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: "3.x.x"
+            }
+          }
         },
         blog: {
           showReadingTime: true,
@@ -66,24 +72,15 @@ const config = {
         },
         items: [
           {
-            to: "docs/learn",
-            activeBasePath: "docs/learn",
-            label: "Learn",
-            position: "left"
-          },
-          {
             to: "docs",
-            activeBaseRegex: "docs$|docs\\/(get-started|api|syntax)",
             label: "Docs",
             position: "left"
           },
-          {
-            to: "docs/about",
-            activeBasePath: "docs/about",
-            label: "About",
-            position: "left"
-          },
           { to: "playground", label: "Playground", position: "left" },
+          {
+            type: "docsVersionDropdown",
+            position: "right"
+          },
           { to: "blog", label: "Blog", position: "right" },
           {
             href: "https://gitter.im/eta-dev/community",
@@ -140,7 +137,8 @@ const config = {
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme
+        darkTheme: darkCodeTheme,
+        additionalLanguages: ["ejs"]
       }
     })
 }
