@@ -64,6 +64,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      announcementBar: {
+        id: "eta_v3",
+        content:
+          "Eta v3 was just released! Read through the docs to learn more.",
+        backgroundColor: "#25c2a0"
+      },
       navbar: {
         title: "Eta",
         logo: {
@@ -138,7 +144,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["ejs"]
+        additionalLanguages: ["ejs", "typescript"]
       }
     })
 }

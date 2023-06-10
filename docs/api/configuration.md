@@ -1,77 +1,69 @@
 ---
 id: configuration
-title: Configuration
+title: Configuration Options
 ---
 
-Similarly to many other libraries, Eta allows you to customize its behavior via options.
+```ts
+type config = {
+  /** Whether or not to automatically XML-escape interpolations. Default true */
+  autoEscape: boolean
 
-[TypeDoc doc page](https://eta-dev.github.io/eta/interfaces/_config_.etaconfig.html)
+  /** Apply a filter function defined on the class to every interpolation or raw interpolation */
+  autoFilter: boolean
 
-## List of options
+  /** Configure automatic whitespace trimming. Default `[false, 'nl']` */
+  autoTrim: trimConfig | [trimConfig, trimConfig]
 
-| Option       | Description                                 |            Type            |      Default       | Required? |
-| ------------ | :------------------------------------------ | :------------------------: | :----------------: | :-------: |
-| `async`      | Whether to generate async templates         |         `boolean`          |      `false`       |    Yes    |
-| `autoEscape` | Whether to automatically XML-escape         |         `boolean`          |                    |    Yes    |
-| `autoTrim`   | Configure automatic whitespace trimming     |   [autoTrim](#autotrim)    |  `[false, "nl"]`   |    Yes    |
-| `cache`      | Cache templates by `name` or `filename`     |         `boolean`          |                    |    Yes    |
-| `e`          | XML-escaping function                       |         `Function`         |     `config.e`     |    Yes    |
-| `filename`   | Absolute filepath of template (for caching) |          `string`          |    `undefined`     |    No     |
-| `name`       | Template name (for caching)                 |          `string`          |    `undefined`     |    No     |
-| `plugins`    | Plugins array                               |    [plugins](#plugins)     |  `config.plugins`  |    Yes    |
-| `root`       | Base filepath. Defaults to `"\"` internally |          `string`          |    `undefined`     |    No     |
-| `templates`  | Object containing templates                 | `Cacher<TemplateFunction>` | `config.templates` |    Yes    |
-| `tags`       | Template delimiters                         |     `[string, string]`     |   `["<%", "%>"]`   |    Yes    |
-| `useWith`    | Use `with(){}` to have data scope as global |         `boolean`          |    `undefined`     |    No     |
-| `varName`    | Name of data object                         |          `string`          |       `"it"`       |    Yes    |
-| `view cache` | Overrides `cache`                           |         `boolean`          |    `undefined`     |    No     |
-| `views`      | Absolute filepath to views directory        |          `string`          |    `undefined`     |    No     |
+  /** Whether or not to cache templates if `name` or `filename` is passed */
+  cache: boolean
 
-### Delimiter Caveats
+  /** Holds cache of resolved filepaths. Set to `false` to disable. */
+  cacheFilepaths: boolean
 
-Delimeters must be RegExp-escaped.
+  /** Whether to pretty-format error messages (introduces runtime penalties) */
+  debug: boolean
 
-### `autoTrim`
+  /** Function to XML-sanitize interpolations */
+  escapeFunction: (str: unknown) => string
 
-`autoTrim` controls whitespace trimming.
+  /** Function applied to all interpolations when autoFilter is true */
+  filterFunction: (val: unknown) => string
 
-**Signature**
+  /** Raw JS code inserted in the template function. Useful for declaring global variables for user templates */
+  functionHeader: string
 
-`"nl" | "slurp" | false | ["nl" | "slurp" | false, "nl" | "slurp" | false]`
+  /** Parsing options */
+  parse: {
+    /** Which prefix to use for evaluation. Default `""`, does not support `"-"` or `"_"` */
+    exec: string
 
-**Options**
+    /** Which prefix to use for interpolation. Default `"="`, does not support `"-"` or `"_"` */
+    interpolate: string
 
-- `"nl"` trims a leading or trailing newline
-- `"slurp"` trims all leading/trailing whitespace
-- `true` is equivalent to `"slurp"`
+    /** Which prefix to use for raw interpolation. Default `"~"`, does not support `"-"` or `"_"` */
+    raw: string
+  }
 
-When an array is passed, Eta uses the equivalent options on the left or right side of the string
+  /** Array of plugins */
+  plugins: Array<{
+    processFnString?: Function
+    processAST?: Function
+    processTemplate?: Function
+  }>
 
-### `plugins`
+  /** Remove all safe-to-remove whitespace */
+  rmWhitespace: boolean
 
-`plugins` is an array of objects, each with the following properties:
+  /** Delimiters: by default `['<%', '%>']` */
+  tags: [string, string]
 
-| Property          | Description                                       |    Type    |
-| ----------------- | :------------------------------------------------ | :--------: |
-| `processAST`      | Function that manipulates _Eta_ syntax tree       | `Function` |
-| `processFnString` | Function that manipulates _Eta_ template function | `Function` |
+  /** Make data available on the global object instead of varName */
+  useWith: boolean
 
-## `config`
+  /** Name of the data object. Default `it` */
+  varName: string
 
-`Eta.config` returns Eta's base ("global") configuration. See above.
-
-## `getConfig`
-
-`getConfig` takes some config options and merges them with the default. It optionally takes a third parameter, which it merges with the default first.
-
-High-level APIs like `render` and `compile` call `getConfig` internally, but you should call lower-level APIs (like `compileToString`) with a valid config object, which you can get from this function.
-
-### Syntax
-
-[TypeDoc doc page](https://eta-dev.github.io/eta/modules/_config_.html#getconfig)
-
-### Example
-
-```js
-Eta.compileToString(myTemplate, Eta.getConfig({ tags: ["{{", "}}"] }))
+  /** Directory that contains templates */
+  views?: string
+}
 ```

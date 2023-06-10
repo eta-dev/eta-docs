@@ -12,7 +12,7 @@ module.exports = {
     {
       type: "category",
       label: "API",
-      items: ["api/overview"],
+      items: ["api/overview", "api/configuration"],
       collapsed: false
     }
   ]

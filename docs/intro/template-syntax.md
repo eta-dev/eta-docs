@@ -41,6 +41,8 @@ Partials are just like regular templates, except they are rendered inside other 
 
 ```eta
 <%~ include("./path-to-partial") %>
+<% /* we can also pass in data that will be merged with `it` and passed to the partial */ %>
+<%~ include("./path-to-partial", { option: true })>
 ```
 
 **To render an async partial**, use the `<%~` opening tag + the `includeAsync()` function.
