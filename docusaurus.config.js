@@ -87,9 +87,8 @@ const config = {
             type: "docsVersionDropdown",
             position: "right"
           },
-          { to: "blog", label: "Blog", position: "right" },
           {
-            href: "https://gitter.im/eta-dev/community",
+            href: "https://discord.gg/27gGncJYE2",
             label: "Community",
             position: "right"
           },
@@ -120,8 +119,8 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Gitter",
-                href: "https://gitter.im/eta-js/community"
+                label: "Discord",
+                href: "https://discord.gg/27gGncJYE2"
               }
             ]
           },
