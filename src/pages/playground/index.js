@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "@theme/Layout"
 import styles from "./index.module.css"
 import datStyles from "./dat-gui.module.css"
-import * as Eta from "eta"
+import { Eta } from "eta"
 import DatGui, { DatBoolean, DatSelect, DatString } from "react-dat-gui"
 
 import "./react-dat-gui.css"
@@ -36,9 +36,11 @@ class AceEditor extends React.Component {
   }
 }
 
-Eta.templates.define(
+const eta = new Eta()
+
+eta.templates.define(
   "mypartial",
-  Eta.compile("Partial content: the value of `num` is <%= it.num %>")
+  eta.compile("Partial content: the value of `num` is <%= it.num %>")
 )
 
 var initialTemplate = `OK, so have fun! :D
@@ -114,8 +116,8 @@ class Playground extends React.Component {
     super(props)
     this.state = {
       template: initialTemplate,
-      functionString: Eta.compile(initialTemplate).toString(),
-      templateResult: Eta.render(initialTemplate, renderData),
+      functionString: eta.compile(initialTemplate).toString(),
+      templateResult: eta.render(initialTemplate, renderData),
       config: {
         autoEscape: true,
         tagOpen: "<%",
@@ -145,17 +147,15 @@ class Playground extends React.Component {
         }
         // console.log(customConfig)
         try {
-          functionString = Eta.compile(
-            this.state.template,
-            customConfig
-          ).toString()
+          functionString = eta
+            .withConfig(customConfig)
+            .compile(this.state.template)
+            .toString()
           // console.log(functionString)
 
-          templateResult = Eta.render(
-            this.state.template,
-            renderData,
-            customConfig
-          )
+          templateResult = eta
+            .withConfig(customConfig)
+            .render(this.state.template, renderData)
           // console.log(templateResult)
         } catch (ex) {
           console.log("Err!")
