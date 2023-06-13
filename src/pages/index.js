@@ -41,7 +41,7 @@ write any valid JS expression inside interpolate tags: */ %>
     label: "Partials",
     config: `<%~ include("mypartial") %>
 
-<%~ includeFile('./navbar', { pages: [
+<%~ include('./navbar', { pages: [
   'home',
   'about',
   'users'
@@ -57,68 +57,6 @@ write any valid JS expression inside interpolate tags: */ %>
 
 function Snippet({ label, config }) {
   return <CodeBlock language="ejs">{config}</CodeBlock>
-}
-
-const features = [
-  {
-    title: <>Unbeatable Performance</>,
-    imageUrl: "img/undraw/outer_space.svg",
-    description: (
-      <>
-        <a href="docs/about/performance">Benchmarks</a> demonstrate just how
-        fast Eta is. Think fast, then multiply by crazy speedy, and you have an
-        idea of Eta's performance.
-      </>
-    )
-  },
-  {
-    title: <>Simply JavaScript</>,
-    imageUrl: "img/undraw/coding.svg",
-    description: (
-      <>
-        Eta's template syntax (inspired by EJS) means you write templates with
-        just JavaScript -- you don't have to learn an entirely new template
-        syntax.
-      </>
-    )
-  },
-  {
-    title: <>Powerful and Lightweight</>,
-    imageUrl: "img/undraw/collecting.svg",
-    description: (
-      <>
-        Eta was designed by the team who created Squirrelly, as an alternative
-        to EJS. Though it has almost-compatible syntax to EJS, it's more
-        configurable and has a minzipped bundle cost of only ~2KB!
-      </>
-    )
-  },
-  {
-    title: <>Configurable and pluggable</>,
-    imageUrl: "img/undraw/software_engineer.svg",
-    description: (
-      <>Eta supports plugins, custom delimiters, caching, and so much more!</>
-    )
-  }
-]
-
-function Feature({ imageUrl, title, description }) {
-  const imgUrl = useBaseUrl(imageUrl)
-  return (
-    <div className={classnames("col col--6", styles.feature)}>
-      {imgUrl && (
-        <div className="text--center">
-          <img
-            className={classnames("padding-vert--md", styles.featureImage)}
-            src={imgUrl}
-            alt={title}
-          />
-        </div>
-      )}
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </div>
-  )
 }
 
 function Home() {
@@ -153,7 +91,7 @@ function Home() {
                     "button button--outline button--secondary button--lg",
                     styles.getStarted
                   )}
-                  to={useBaseUrl("docs/learn")}
+                  to={useBaseUrl("docs")}
                 >
                   Get Started
                 </Link>
@@ -164,9 +102,9 @@ function Home() {
                     "button button--outline button--secondary button--lg",
                     styles.getStarted
                   )}
-                  to={useBaseUrl("docs/about/eta-vs-ejs")}
+                  to={useBaseUrl("docs/intro/template-syntax")}
                 >
-                  Eta vs EJS
+                  Eta Syntax Guide
                 </Link>
               </div>
             </div>
@@ -215,22 +153,11 @@ function Home() {
               <p>Eta vs. EJS:</p>
               <ul>
                 <li>
-                  Eta's more lightweight, weighing in at only{" "}
-                  <b>2.4KB gzipped</b>
-                </li>
-                <li>
                   Eta{" "}
                   <b>
                     <a href="https://deno.land/x/eta">supports Deno</a>
                   </b>
                   , out-of-the-box
-                </li>
-                <li>
-                  Eta's <b>much faster</b> at compiling and rendering than EJS.
-                  Check out{" "}
-                  <a href="https://raw.githack.com/eta-dev/eta/master/browser-tests/benchmark.html">
-                    these benchmarks
-                  </a>
                 </li>
                 <li>
                   Eta supports <b>layouts</b> out of the box (
@@ -302,17 +229,6 @@ function Home() {
             </div>
           </div>
         </div>
-        {features && features.length && (
-          <section className={styles.features}>
-            <div className="container margin-vert--md">
-              <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
       </main>
     </Layout>
   )

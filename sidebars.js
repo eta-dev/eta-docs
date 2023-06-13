@@ -14,6 +14,16 @@ module.exports = {
       label: "API",
       items: ["api/overview", "api/configuration"],
       collapsed: false
+    },
+    {
+      type: "category",
+      label: "Resources",
+      items: [
+        "resources/deno",
+        "resources/express",
+        "resources/integrations",
+        "resources/tutorials-and-articles"
+      ]
     }
   ]
 }
