@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "@theme/Layout"
 import styles from "./index.module.css"
 import datStyles from "./dat-gui.module.css"
-import { Eta } from "eta"
+import { Eta } from "eta-3"
 import DatGui, { DatBoolean, DatSelect, DatString } from "react-dat-gui"
 
 import "./react-dat-gui.css"

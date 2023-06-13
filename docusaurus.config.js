@@ -106,12 +106,12 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Learn",
-                to: "docs/learn"
+                label: "Quickstart",
+                to: "docs"
               },
               {
-                label: "About",
-                to: "docs/about"
+                label: "Eta Syntax",
+                to: "docs/intro/template-syntax"
               }
             ]
           },
@@ -127,10 +127,6 @@ const config = {
           {
             title: "Social",
             items: [
-              {
-                label: "Blog",
-                to: "blog"
-              },
               {
                 label: "GitHub",
                 href: "https://github.com/eta-dev/eta"

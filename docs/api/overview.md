@@ -13,7 +13,7 @@ import { Eta } from "eta"
 const eta = new Eta(options)
 ```
 
-Passing in options is optional. You can find a list of all options [here](/api/configuration). Most users will need to pass in the `views` option, which is the path to your templates directory.
+Passing in options is optional. You can find a list of all options [here](api/configuration). Most users will need to pass in the `views` option, which is the path to your templates directory.
 
 ```js
 const eta = new Eta({ views: path.join(__dirname, "templates") })
