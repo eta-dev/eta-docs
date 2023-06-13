@@ -38,7 +38,7 @@ class AceEditor extends React.Component {
 
 const eta = new Eta()
 
-eta.templates.define(
+eta.templatesSync.define(
   "mypartial",
   eta.compile("Partial content: the value of `num` is <%= it.num %>")
 )
@@ -117,7 +117,7 @@ class Playground extends React.Component {
     this.state = {
       template: initialTemplate,
       functionString: eta.compile(initialTemplate).toString(),
-      templateResult: eta.render(initialTemplate, renderData),
+      templateResult: eta.renderString(initialTemplate, renderData),
       config: {
         autoEscape: true,
         tagOpen: "<%",
@@ -131,8 +131,6 @@ class Playground extends React.Component {
   }
 
   handleTemplateChange(newvalue) {
-    // console.log('newvalue\n============')
-    // console.log(newvalue)
     this.setState(
       {
         template: newvalue
@@ -145,18 +143,15 @@ class Playground extends React.Component {
           autoEscape: this.state.config.autoEscape,
           tags: [this.state.config.tagOpen, this.state.config.tagClose]
         }
-        // console.log(customConfig)
         try {
           functionString = eta
             .withConfig(customConfig)
             .compile(this.state.template)
             .toString()
-          // console.log(functionString)
 
           templateResult = eta
             .withConfig(customConfig)
-            .render(this.state.template, renderData)
-          // console.log(templateResult)
+            .renderString(this.state.template, renderData)
         } catch (ex) {
           console.log("Err!")
           console.log(ex.stack)
