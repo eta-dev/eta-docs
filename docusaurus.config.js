@@ -64,6 +64,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        appId: "7JV1D0QPL7",
+        apiKey: "7e23d12b6114cbee8de9221952ea5f7b",
+        indexName: "eta_js",
+        contextualSearch: true
+      },
       announcementBar: {
         id: "eta_v3",
         content:
