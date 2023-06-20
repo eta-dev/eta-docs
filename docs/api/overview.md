@@ -65,6 +65,24 @@ const res = eta.renderStringAsync("Hello <%= await it.someFunction() %>", {
 })
 ```
 
+## Defining Templates Programmatically
+
+To define a template programmatically, use `loadTemplate`:
+
+```js
+const headerPartial = `
+  <header>
+    <h1><%= it.title %></h1>
+  </header>
+`
+
+eta.loadTemplate("@header", headerPartial)
+```
+
+If your template isn't a file in the views directory, you must name it with a leading `@` so that Eta knows not to resolve it from the filesystem.
+
+The third argument to `loadTemplate` is a boolean describing whether the template is async or not. By default, Eta will assume that the template is synchronous.
+
 ## Common Use Cases
 
 ### Custom Tags

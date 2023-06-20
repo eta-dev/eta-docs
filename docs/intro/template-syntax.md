@@ -42,7 +42,7 @@ Partials are just like regular templates, except they are rendered inside other 
 ```eta
 <%~ include("./path-to-partial") %>
 <% /* we can also pass in data that will be merged with `it` and passed to the partial */ %>
-<%~ include("./path-to-partial", { option: true })>
+<%~ include("./path-to-partial", { option: true }) %>
 ```
 
 **To render an async partial**, use the `<%~` opening tag + the `includeAsync()` function.
@@ -55,6 +55,16 @@ A template file can only have one parent layout (though layouts themselves can h
 
 ```eta
 <% layout("./path-to-layout") %>
+```
+
+### Name Resolution of Partials and Layouts
+
+If you're running Eta in Node.js or Deno, Eta will automatically try to resolve partials and layouts from inside the filesystem. Ex. `<%~ include("/header.eta") %>` will look for a file called `header.eta` in the `views` directory of your project.
+
+But what if you want to include a partial/layout that doesn't exist on the filesystem? Maybe you programatically defined it as a string or loaded it from the internet. There's a solution for that. If you name your template starting with an `@` symbol, Eta will know to look in the internal template storage rather than on the filesystem.
+
+```eta
+<%~ include("@header") %>
 ```
 
 ## Whitespace Control
