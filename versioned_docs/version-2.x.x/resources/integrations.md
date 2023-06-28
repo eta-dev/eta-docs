@@ -20,3 +20,4 @@ Use at your own risk!
 - Opine (see https://github.com/asos-craigmorten/opine/tree/main/examples/eta)
 - Alosaur (see https://github.com/alosaur/alosaur/tree/master/examples/eta)
 - Rollup Plugin (see https://github.com/stateful/rollup-plugin-eta)
+- Fastify (see https://github.com/fastify/point-of-view) - currently only works for eta v2. Plain to support v3
