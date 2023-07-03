@@ -19,6 +19,7 @@ Use at your own risk! They may not support Eta v3 yet either.
 
 - Opine (see https://github.com/asos-craigmorten/opine/tree/main/examples/eta)
 - Alosaur (see https://github.com/alosaur/alosaur/tree/master/examples/eta)
+- Fastify (see https://github.com/fastify/point-of-view) - currently only supports eta v2, but plans to support v3
 
 ## Tools for Eta development
 
