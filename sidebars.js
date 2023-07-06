@@ -21,6 +21,7 @@ module.exports = {
       items: [
         "resources/deno",
         "resources/express",
+        "resources/fastify",
         "resources/integrations",
         "resources/tutorials-and-articles"
       ]
