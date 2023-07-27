@@ -57,6 +57,12 @@ A template file can only have one parent layout (though layouts themselves can h
 <% layout("./path-to-layout") %>
 ```
 
+To render child content in the layout, use `it.body`.
+
+```
+<%~ it.body %>
+```
+
 ### Name Resolution of Partials and Layouts
 
 If you're running Eta in Node.js or Deno, Eta will automatically try to resolve partials and layouts from inside the filesystem. Ex. `<%~ include("/header.eta") %>` will look for a file called `header.eta` in the `views` directory of your project.
