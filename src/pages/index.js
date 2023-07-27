@@ -161,7 +161,7 @@ function Home() {
                 </li>
                 <li>
                   Eta supports <b>layouts</b> out of the box (
-                  <a href="/docs/learn/layouts">learn more</a>)
+                  <a href="/docs/intro/template-syntax#partials-and-layouts">learn more</a>)
                 </li>
                 <li>
                   Eta allows <b>left whitespace control</b> (with <code>-</code>
