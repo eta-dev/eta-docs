@@ -15,14 +15,17 @@ var { Eta } = require("eta")
 
 // views directory
 let viewpath = path.join(__dirname, "views")
-
+// on Deno, use let viewpath = Deno.cwd()+'/views/'
 let eta = new Eta({ views: viewpath, cache: true })
 
+/* no more needed with Deno or Node (Eta v3.x.x)
 app.engine("eta", eta.render)
 app.set("view engine", "eta")
+*/
 
 app.get("/", (req, res) => {
-  res.send(eta.render("index", { title: "Hey", place: "Hello there!" }))
+  // use status(statusNumber) and send(template)
+  res.status(200).send(eta.render("index", { title: "Hey", place: "Hello there!" }))
 })
 
 app.listen(port, () => {
