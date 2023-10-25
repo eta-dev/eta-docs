@@ -17,5 +17,5 @@ let eta = new Eta({ views: viewpath, cache: true })
 
 and used like this:
 ```ts
-res.send(eta.render('accueil',{title:"exemple de titre"}));
+res.send(eta.render('home',{title:"that's my title"}));
 ```
