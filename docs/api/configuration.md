@@ -65,5 +65,8 @@ type config = {
 
   /** Directory that contains templates */
   views?: string
+
+  /** Control template file extension defaults. Default `.eta` */
+  defaultExtension?: string;
 }
 ```
