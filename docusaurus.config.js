@@ -27,6 +27,14 @@ const config = {
     locales: ["en"]
   },
 
+  scripts: [
+    {
+      src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1406677632291157",
+      async: true,
+      crossorigin: "anonymous"
+    }
+  ],
+
   presets: [
     [
       "classic",
