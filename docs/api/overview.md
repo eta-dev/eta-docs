@@ -81,7 +81,7 @@ eta.loadTemplate("@header", headerPartial)
 
 If your template isn't a file in the views directory, you must name it with a leading `@` so that Eta knows not to resolve it from the filesystem.
 
-The third argument to `loadTemplate` is a boolean describing whether the template is async or not. By default, Eta will assume that the template is synchronous.
+The third argument to `loadTemplate` is an object of type `{async: boolean}` describing whether the template is async or not. By default, Eta will assume that the template is synchronous.
 
 ## Common Use Cases
 
