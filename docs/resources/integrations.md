@@ -27,3 +27,4 @@ Use at your own risk! They may not support Eta v3 yet either.
 - VSCode Extension (see https://marketplace.visualstudio.com/items?itemName=shadowtime2000.eta-vscode)
 - ESLint Plugin (see https://github.com/eta-dev/eslint-plugin-eta)
 - NodeRED Flow (see https://flows.nodered.org/node/@ralphwetzel/node-red-contrib-eta)
+- Koa Middleware (see https://github.com/cedx/koa-eta/wiki)
